@@ -118,7 +118,7 @@ module.exports = function (/* ctx */) {
       manifest: {
         name: 'welperson',
         short_name: 'welperson',
-        description: 'A Quasar Framework app',
+        description: 'welperson',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

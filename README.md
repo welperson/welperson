@@ -1,6 +1,6 @@
 # welperson (welperson)
 
-A Quasar Framework app
+welperson
 
 ## Install the dependencies
 ```bash
