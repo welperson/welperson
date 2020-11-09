@@ -1,19 +1,21 @@
 <template>
   <q-page>
-    <section-intro/>
-    <section-content/>
+    <SectionContent :title="title"/>
   </q-page>
 </template>
 
 <script>
-import SectionIntro from 'components/SectionIntro'
 import SectionContent from 'components/SectionContent'
 
 export default {
-  name: 'PageIndex',
+  name: 'PageCategory',
   components: {
-    SectionIntro,
     SectionContent
+  },
+  data () {
+    return {
+      title: '카테고리'
+    }
   }
 }
 </script>
