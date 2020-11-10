@@ -1,20 +1,27 @@
 <template>
-  <q-page>
-    <SectionContent :title="title"/>
-  </q-page>
+  <div class="content">
+    <div class="q-pa-lg">
+      <div class="text-h1 text-primary">베스트</div>
+      <div class="row items-start">
+        <div class="col-4 q-pa-xl" v-for="item in bestItem" :key="item.id">
+          <Product :item="item"/>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import SectionContent from 'components/SectionContent'
+import Product from 'components/Product'
 
 export default {
-  name: 'PageBestProduct',
+  name: 'NewProduct',
   components: {
-    SectionContent
+    Product
   },
   data () {
     return {
-      title: '베스트'
+      bestItem: this.$store.state.items.filter(item => item.types.includes('best'))
     }
   }
 }
