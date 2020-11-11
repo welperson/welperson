@@ -45,6 +45,32 @@ export default function () {
         team: true,
         fit: true
       }
+    ],
+    menus: [
+      {
+        id: 'menu1',
+        name: '주문 내역'
+      },
+      {
+        id: 'menu2',
+        name: '배송지 관리'
+      },
+      {
+        id: 'menu3',
+        name: '예약 조회'
+      },
+      {
+        id: 'menu4',
+        name: '상품 후기'
+      },
+      {
+        id: 'menu5',
+        name: '문의 내역'
+      },
+      {
+        id: 'menu6',
+        name: '개인 정보 관리'
+      }
     ]
   }
 }

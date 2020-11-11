@@ -1,6 +1,8 @@
 <template>
   <div>
-    <img :src="item.img" style="max-width: 300px">
+    <div class="row justify-center">
+      <img :src="item.img" class="productImage inline-block">
+    </div>
     <div>
       <div>{{ item.name }}</div>
       <div>
@@ -12,6 +14,17 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.row
+  .productImage
+    width: 260px
+    height: 200px
+    // @media all and (max-width: 500px)
+    //   width: 300px
+    //   height: 250px
+
+</style>
 
 <script>
 export default {
