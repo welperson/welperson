@@ -2,18 +2,18 @@
   <div>
     <div class="text-h1 text-primary">마이페이지</div>
       <div class="row q-col-gutter-y-md">
-        <div class="col">
-          <div class="q-pt-lg"><span class="text-h1 text-bold">김유니</span><span class="text-h4">님</span></div>
+        <div class="col col-xs-8 col-md-4">
+          <div class="q-pt-lg"><span class="text-h1 text-bold q-pl-lg">김유니</span><span class="text-h3"> 님</span></div>
         </div>
-        <div class="col">
-          <div class="text-h3 text-bold">잔여 포인트</div>
-          <div class="q-pt-md q-pl-xs text-h6">1,000,000원</div>
-          <div><q-btn flat class="text-primary q-pt-sm">상세보기 ></q-btn></div>
+        <div class="col col-xs-8 col-md-4">
+          <div class="q-pl-md text-h3 text-bold">잔여 포인트</div>
+          <div class="q-pt-md q-pl-md text-h6">1,000,000원</div>
+          <div><q-btn flat class="text-primary q-pt-sm q-pl-xs">상세보기 ></q-btn></div>
         </div>
-        <div class="col">
-          <div class="text-h3 text-bold">적립금</div>
-          <div class="q-pt-md q-pl-xs text-h6">39원</div>
-          <div><q-btn flat class="text-primary q-pt-sm">상세보기 ></q-btn></div>
+        <div class="col col-xs-8 col-md-4">
+          <div class="q-pl-md text-h3 text-bold">적립금</div>
+          <div class="q-pt-md q-pl-md text-h6">39원</div>
+          <div><q-btn flat class="text-primary q-pt-sm q-pl-xs">상세보기 ></q-btn></div>
         </div>
       </div>
   </div>

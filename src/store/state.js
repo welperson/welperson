@@ -46,30 +46,24 @@ export default function () {
         fit: true
       }
     ],
-    menus: [
+    adds: [
       {
-        id: 'menu1',
-        name: '주문 내역'
+        id: 'add1',
+        address: '서울시 관악구 신림동 1839-5 우리동네아파트 102동 418호',
+        person: '김장미',
+        num: '010-1111-2222'
       },
       {
-        id: 'menu2',
-        name: '배송지 관리'
+        id: 'add2',
+        address: '서울시 관악구 봉천동 551-3 104호',
+        person: '박봉천동',
+        num: '010-1234-5678'
       },
       {
-        id: 'menu3',
-        name: '예약 조회'
-      },
-      {
-        id: 'menu4',
-        name: '상품 후기'
-      },
-      {
-        id: 'menu5',
-        name: '문의 내역'
-      },
-      {
-        id: 'menu6',
-        name: '개인 정보 관리'
+        id: 'add3',
+        address: '강원도 춘천시 퇴계3차 주공아파트 4동 102호',
+        person: '최춘천',
+        num: '010-7777-8888'
       }
     ]
   }

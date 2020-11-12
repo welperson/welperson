@@ -24,8 +24,8 @@
       <q-btn flat color="accent" label="신상품" @click="$router.push('/new')"/>
       <q-btn flat color="accent" label="베스트" @click="$router.push('/best')"/>
       <q-space/>
-      <q-btn flat color="primary" icon="mdi-heart-outline"/>
-      <q-btn flat color="primary" icon="mdi-cart-outline"/>
+      <q-btn flat color="primary" icon="mdi-heart-outline" @click="$router.push('/favorite')"/>
+      <q-btn flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
       <q-btn flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
     </q-toolbar>
   </q-header>

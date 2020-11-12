@@ -52,7 +52,6 @@ export default {
   components: {
     Product
   },
-
   data () {
     return {
       teamItem: this.$store.state.items.filter(item => item.team),

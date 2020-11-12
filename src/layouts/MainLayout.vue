@@ -1,10 +1,10 @@
 <template>
   <q-layout view="hHh Lpr fff" class="bg-white">
     <app-header />
-    <app-footer />
     <q-page-container>
       <router-view />
     </q-page-container>
+    <app-footer />
   </q-layout>
 </template>
 
