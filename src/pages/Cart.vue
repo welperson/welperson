@@ -3,40 +3,31 @@
     <div class="q-pa-lg">
       <div class="text-h1 text-primary">장바구니</div>
       <div class="row q-px-xl q-pt-xl">
-        <div><q-checkbox size="sm" label="전체선택" val="all" v-model="all"/></div>
+        <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
         <div><q-btn class="btn" flat label="선택삭제"/></div>
       </div>
       <hr>
 
-      <!-- 장바구니 row -->
-      <div class="row q-px-xl q-py-sm">
-        <div><q-checkbox size="sm" val="all" v-model="all" style="padding-top: 30px"/></div>
-        <div class="col-2"><img src="image/2.png" style="width: 150px; height: 100px;"></div>
-        <div class="col-6 text-h5 text-secondary" style="padding-top: 40px">모던오피스 고급 스틸 연필꽂이</div>
-        <div class="col-2" style="padding-top: 40px">
-          <q-btn size="xs" label="-" @click="count--" />
-          <input style="width: 30px" type="text" v-model="count">
-          <q-btn size="xs" label="+" @click="count++" />
+      <div v-for="item in cartItems" :key="item.id">
+        <div class="row q-px-xl q-py-sm">
+          <div><q-checkbox size="sm" :val="item.id" v-model="cartCheck" style="padding-top: 30px"/></div>
+          <div class="col-2"><img :src="item.img" style="width: 150px; height: 100px;"></div>
+          <div class="col-5 text-secondary" style="padding-top: 30px">
+            <div class="text-h5">{{ item.name }}</div>
+            <div>{{ item.exp }}</div>
+          </div>
+          <div style="padding-top: 40px;">
+            <q-btn size="xs" label="-" @click="item.cartCnt--" />
+            <input style="width: 30px" type="text" v-model="item.cartCnt">
+            <q-btn size="xs" label="+" @click="item.cartCnt++" />
+          </div>
+          <div class="row q-pl-xl">
+            <div style="padding-top: 40px;">{{ 0 + item.price*item.cartCnt }} 원</div>
+            <div style="padding-top: 33px; padding-left: 38px"><q-btn flat label="X"/></div>
+          </div>
         </div>
-        <div style="padding-top: 40px">21,500원</div>
-        <div style="padding-top: 33px; padding-left: 38px"><q-btn flat label="X"/></div>
+        <hr>
       </div>
-      <hr>
-
-      <!-- 장바구니 row -->
-      <div class="row q-px-xl q-py-sm">
-        <div><q-checkbox size="sm" val="all" v-model="all" style="padding-top: 30px"/></div>
-        <div class="col-2"><img src="image/3.png" style="width: 150px; height: 100px;"></div>
-        <div class="col-6 text-h5 text-secondary" style="padding-top: 40px">25절 A5 밴드 양장</div>
-        <div class="col-2" style="padding-top: 40px">
-          <q-btn size="xs" label="-" @click="count--" />
-          <input style="width: 30px" type="text" v-model="count">
-          <q-btn size="xs" label="+" @click="count++" />
-        </div>
-        <div style="padding-top: 40px">19,500원</div>
-        <div style="padding-top: 33px; padding-left: 38px"><q-btn flat label="X"/></div>
-      </div>
-      <hr>
 
     </div>
   </div>
@@ -47,8 +38,24 @@ export default {
   name: 'Cart',
   data () {
     return {
-      all: [''],
-      count: 0
+      cartCheck: [],
+      cartItems: this.$store.state.items.filter(item => item.cart === true)
+    }
+  },
+  computed: {
+    selectAll: {
+      get: function () {
+        return this.cartItems ? this.cartCheck.length === this.cartItems.length : false
+      },
+      set: function (value) {
+        var cartCheck = []
+        if (value) {
+          this.cartItems.forEach(function (item) {
+            cartCheck.push(item.id)
+          })
+        }
+        this.cartCheck = cartCheck
+      }
     }
   }
 }

@@ -2,19 +2,21 @@
   <div class="content">
     <div class="q-pa-lg">
       <div class="row">
-        <div><img src="image/2.png" height="550px" width="550px"></div>
+        <div><img :src="item.img" height="550px" width="550px"></div>
         <div class="q-pl-xl">
-          <div class="text-h2">모던오피스 고급 스틸 연필꽂이</div>
-          <div class="q-py-sm text-secondary">깔끔한 정리와 모던한 디자인의 연필꽂이</div>
+          <h2>{{ item.name }}</h2>
+          <div class="q-py-sm text-secondary">{{ item.exp }}</div>
           <div class="row q-py-xl">
-            <div class="text-h4 text-secondary q-pt-md">25000원</div>
-            <div class="text-h2 q-pt-xs q-pl-md">22500원</div>
+            <div v-if="item.salePrice !== 0" class="text-h4 text-secondary q-pt-md q-pr-md">{{ item.salePrice }}원</div>
+            <div class="text-h2 q-pt-xs">{{ item.price }}원</div>
             <q-space/>
-            <div class="text-h3 text-primary q-pt-sm">10%</div>
+            <div v-if="item.salePrice !== 0" class="text-h3 text-primary q-pt-sm">{{ (item.salePrice - item.price)/item.salePrice * 100 }}%</div>
           </div>
           <div class="row">
             <div class="col-3 q-pt-md">상품을 선택하세요</div>
-            <div class="col-9"><q-select v-model="product" :options="options" label="상품 선택"/></div>
+            <div class="col-9">
+              <q-select v-model="product" :options="item.opts" label="상품 선택"/>
+            </div>
           </div>
           <div class="product-box" v-if="product !== null">
             <div class="row q-py-sm">
@@ -27,12 +29,12 @@
                 <input style="width: 30px" type="text" v-model="count">
                 <q-btn size="xs" label="+" @click="count++" />
               </div><q-space/>
-              <div class="q-pr-sm">22500원</div>
+              <div class="q-pr-sm">{{ 0 + item.price*count }} 원</div>
             </div>
           </div>
           <div class="row q-pt-xl"><q-space/>
             <div class="text-h6 q-pt-md">총 상품금액</div>
-            <div class="text-h3 q-pt-xs q-pl-sm">0원</div>
+            <div class="text-h3 q-pt-xs q-pl-sm">{{ 0 + item.price*count }} 원</div>
           </div>
           <div class="row q-pt-xl"><q-space/>
             <q-btn flat icon="mdi-heart-outline" class="text-primary" size="xl"/>
@@ -84,9 +86,7 @@
           <div><q-btn class="q-pt-xl" flat color="secondary" icon="mdi-chevron-right" size="xl"/></div>
         </div>
 
-        <Description/>
-        <Review/>
-        <Question/>
+        <DetailBottom/>
 
       </div>
     </div>
@@ -97,25 +97,15 @@
 .product-box
   outline: 1px solid #a6a6a6
 
-.hr-sec::after
-  content: ""
-  flex-grow: 1
-  background: #f1a1a2
-  height: 1px
-  margin: 50px 0px
 </style>
 
 <script>
-import Description from 'components/Description'
-import Review from 'components/Review'
-import Question from 'components/Question.vue'
+import DetailBottom from 'components/DetailBottom.vue'
 
 export default {
   name: 'Detail',
   components: {
-    Description,
-    Review,
-    Question
+    DetailBottom
   },
   data () {
     return {
@@ -123,8 +113,8 @@ export default {
       options: [
         '화이트', '실버', '블랙'
       ],
-      count: 0,
-      items: this.$store.state.items
+      count: 1,
+      item: this.$store.state.items.find(item => item.id === this.$route.params.id)
     }
   },
   methods: {

@@ -2,7 +2,7 @@
   <div class="content">
     <div class="q-pa-lg">
       <MyInfo/>
-      <div class="row">
+      <div class="row" style="height: 100%">
         <div class="col-3 q-pl-xl q-pt-md">
           <ManageMenu />
         </div>

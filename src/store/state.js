@@ -4,48 +4,76 @@ export default function () {
       {
         id: 'item1',
         name: '맥북 Pro 16형',
+        exp: '16형 Retina 디스플레이 화면에 빠져드는 시각적 경험',
         img: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp16touch-space-select-201911_GEO_KR?wid=892&hei=820&&qlt=80&.v=1573165435305',
-        salePrice: 2919000,
-        price: 2800000,
+        salePrice: 2900000,
+        price: 2610000,
+        opts: ['실버', '화이트', '블랙'],
         review: 1000,
         types: ['best'],
+        cart: true,
+        cartCnt: 1,
         team: true,
         fit: false
       },
       {
         id: 'item2',
         name: '국산 하이큐 네임펜',
+        exp: '부드러운 사용감',
         img: 'image/1.png',
         salePrice: 15000,
         price: 12000,
+        opts: ['검정', '파랑', '빨강'],
         review: 20,
         types: ['new', 'best'],
+        cart: false,
+        cartCnt: 0,
         team: true,
         fit: true
       },
       {
         id: 'item3',
         name: '모던오피스 고급 스틸 연필꽂이',
+        exp: '깔끔한 정리와 모던한 디자인의 연필꽂이',
         img: 'image/2.png',
         salePrice: 0,
         price: 9900,
+        opts: ['실버', '화이트', '블랙'],
         review: 13,
         types: ['new', 'best'],
+        cart: false,
+        artCnt: 0,
         team: true,
         fit: true
       },
       {
         id: 'item4',
         name: '25절 A5 밴드 양장',
+        exp: '편리한 사용을 위한 실용적 디자인',
         img: 'image/3.png',
         salePrice: 25000,
         price: 22500,
+        opts: ['블루', '네이비', '그레이', '레드'],
         review: 198,
         types: ['new'],
+        cart: true,
+        cartCnt: 1,
         team: true,
         fit: true
       }
     ],
+    carts: [
+      {
+        id: 'item2',
+        cnt: 1
+      },
+      {
+        id: 'item3',
+        cnt: 1
+      }
+    ],
+    heart: ['item2', 'item3'],
+
     adds: [
       {
         id: 'add1',

@@ -11,7 +11,7 @@ const routes = [
       { path: 'favorite', component: () => import('pages/Favorite.vue') },
       { path: 'cart', component: () => import('pages/Cart.vue') },
       { path: 'mypage', component: () => import('pages/MyPage.vue') },
-      { path: 'detail', component: () => import('pages/Detail.vue') }
+      { path: 'detail/:id', component: () => import('pages/Detail.vue') }
     ]
   },
 
