@@ -1,21 +1,21 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="row">
-        <div><img :src="item.img" height="550px" width="550px"></div>
-        <div class="q-pl-xl">
-          <h2>{{ item.name }}</h2>
-          <div class="q-py-sm text-secondary">{{ item.exp }}</div>
+      <div class="row detailCenter">
+        <div><img class="detailImg" :src="item.img" height="550px" width="550px"></div>
+        <div class="q-pl-xl info">
+          <h2 class="detailName">{{ item.name }}</h2>
+          <div class="q-py-sm text-secondary detailName">{{ item.exp }}</div>
           <div class="row q-py-xl">
             <div v-if="item.salePrice !== 0" class="text-h4 text-secondary q-pt-md q-pr-md">{{ item.salePrice }}원</div>
             <div class="text-h2 q-pt-xs">{{ item.price }}원</div>
             <q-space/>
-            <div v-if="item.salePrice !== 0" class="text-h3 text-primary q-pt-sm">{{ (item.salePrice - item.price)/item.salePrice * 100 }}%</div>
+            <div v-if="item.salePrice !== 0" class="text-h3 text-primary q-pt-sm">{{Math.round((item.salePrice - item.price)/item.salePrice * 100 ) }}%</div>
           </div>
           <div class="row">
-            <div class="col-3 q-pt-md">상품을 선택하세요</div>
+            <div class="col-xs-9 col-sm-9 col-md-3 q-pt-md">상품을 선택하세요</div>
             <div class="col-9">
-              <q-select v-model="product" :options="item.opts" label="상품 선택"/>
+              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onSelect"/>
             </div>
           </div>
           <div class="product-box" v-if="product !== null">
@@ -97,6 +97,40 @@
 .product-box
   outline: 1px solid #a6a6a6
 
+.detailCenter
+  @media (max-width: $breakpoint-md)
+    text-align: center
+    padding-left: 220px
+  @media (max-width: $breakpoint-sm)
+    text-align: center
+    padding-left: 100px
+  @media (max-width: $breakpoint-xs)
+    text-align: center
+    padding-left: 0px
+  .info
+    @media (max-width: $breakpoint-sm)
+      text-align: center
+      padding-left: 0px
+    @media (max-width: $breakpoint-xs)
+      text-align: center
+      padding-left: 0px
+
+.detailImg
+  @media (max-width: $breakpoint-xs)
+    width: 410px
+    height: 300px
+
+.detailName
+  width: 450px
+  @media (max-width: $breakpoint-md)
+    width: 600px
+    padding-left: 0px
+  @media (max-width: $breakpoint-sm)
+    width: 500px
+    padding-left: 0px
+  @media (max-width: $breakpoint-xs)
+    width: 447px
+    padding-left: 0px
 </style>
 
 <script>
@@ -110,9 +144,6 @@ export default {
   data () {
     return {
       product: null,
-      options: [
-        '화이트', '실버', '블랙'
-      ],
       count: 1,
       item: this.$store.state.items.find(item => item.id === this.$route.params.id)
     }
@@ -120,6 +151,9 @@ export default {
   methods: {
     onClick () {
       this.product = null
+    },
+    onSelect () {
+      this.count = 1
     }
   }
 }

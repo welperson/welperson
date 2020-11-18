@@ -1,20 +1,23 @@
 <template>
-  <q-page>
-    <SectionContent :title="title"/>
-  </q-page>
+  <div class="content">
+    <div class="q-pa-lg">
+      <div><CategoryMenu/></div>
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
-import SectionContent from 'components/SectionContent'
+import CategoryMenu from 'components/CategoryMenu'
 
 export default {
   name: 'PageCategory',
   components: {
-    SectionContent
+    CategoryMenu
   },
   data () {
     return {
-      title: '카테고리'
+
     }
   }
 }

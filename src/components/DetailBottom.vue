@@ -10,7 +10,6 @@
         indicator-color="primary"
         align="justify"
         narrow-indicator
-        style="width: 500px; height: 50px;"
       >
         <q-tab name="description" label="상품설명" />
         <q-tab name="review" label="상품후기" />
@@ -36,6 +35,14 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.q-tabs
+  width: 500px
+  height: 50px
+  @media (max-width: $breakpoint-sm)
+    width: 400px
+</style>
 
 <script>
 import Description from 'components/Description'

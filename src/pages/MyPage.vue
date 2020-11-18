@@ -3,10 +3,10 @@
     <div class="q-pa-lg">
       <MyInfo/>
       <div class="row" style="height: 100%">
-        <div class="col-3 q-pl-xl q-pt-md">
+        <div class="col-sm-4 col-md-3 q-pl-xl q-pt-md q-pb-xl menuSt">
           <ManageMenu />
         </div>
-        <div class="col-8">
+        <div class="col-xs-12 col-sm-11 col-md-8">
           <div v-if="!tab || tab === 'history'">
             <MyOrder />
           </div>
@@ -39,6 +39,10 @@
     padding: 40px 40px
     border: 1px solid #ed6665
     text-align: left
+
+.menuSt
+  @media (max-width: $breakpoint-sm)
+    padding-left: 0px
 </style>
 
 <script>

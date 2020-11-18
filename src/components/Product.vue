@@ -8,7 +8,7 @@
       <!-- style="position: relative; z-index: 3; top: -50px" -->
       <div class="row">
         <div>
-          <div>{{ item.name }}</div>
+          <div style="width: 215px">{{ item.name }}</div>
           <div>
             <span v-if="item.salePrice > 0" style="color: #a6a6a6">{{ item.salePrice }}원 </span>
             <span v-else></span>

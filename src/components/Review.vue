@@ -3,9 +3,9 @@
   <div>
     <div class="q-py-lg">
       <div class="row">
-        <div class="text-h1">만족해요</div>
-        <div><q-icon class="q-pa-xs" name="mdi-emoticon-happy-outline" size="xl"/></div>
-        <div class="text-secondary q-pl-md q-pt-md" style="font-size: 20px">2019.10.15</div>
+        <div class="text-h1 text-primary">만족해요</div>
+        <div><q-icon class="q-pa-xs text-primary" name="mdi-emoticon-happy-outline" size="xl"/></div>
+        <div class="q-pl-md q-pt-md" style="font-size: 20px">2019.10.15</div>
       </div>
       <div class="q-pt-md">
         <span>만두 너무 맛있어서 마트에서 계속 사먹다가 <br>
@@ -16,9 +16,9 @@
 
     <div class="q-py-lg">
       <div class="row">
-        <div class="text-h1">별로예요</div>
-        <div><q-icon class="q-pa-xs" name="mdi-emoticon-cry-outline" size="xl"/></div>
-        <div class="text-secondary q-pl-md q-pt-md" style="font-size: 20px">2020.09.28</div>
+        <div class="text-h1 text-secondary">별로예요</div>
+        <div><q-icon class="q-pa-xs text-secondary" name="mdi-emoticon-cry-outline" size="xl"/></div>
+        <div class="q-pl-md q-pt-md" style="font-size: 20px">2020.09.28</div>
       </div>
       <div class="q-pt-md">
         <span>많이 기대했는데 실망했어요 ㅠㅠ</span>
