@@ -15,13 +15,14 @@
           <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-3 q-pt-md">상품을 선택하세요</div>
             <div class="col-9">
-              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onSelect"/>
+              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd"/>
             </div>
           </div>
-          <div class="product-box" v-if="product !== null">
+          <div class="product-box" v-for="product in products" :key="product">
+            <!-- v-if="product !== null" -->
             <div class="row q-py-sm">
               <div class="q-pt-sm q-pl-sm">{{ product }}</div><q-space/>
-              <div><q-btn flat label="X" @click="onClick"/></div>
+              <div><q-btn flat label="X" @click="onDelete()"/></div>
             </div>
             <div class="row q-pb-xs">
               <div class="q-pl-sm">
@@ -38,12 +39,39 @@
           </div>
           <div class="row q-pt-xl"><q-space/>
             <q-btn flat icon="mdi-heart-outline" class="text-primary" size="xl"/>
-            <q-btn flat icon="mdi-cart-outline" class="text-primary" size="xl"/>
-            <q-btn push color="primary" label="구매하기" style="width: 300px; font-size: 20px"/>
+            <q-btn flat icon="mdi-cart-outline" class="text-primary" size="xl" @click="confirm = true"/>
+            <q-btn push color="primary" label="구매하기" style="width: 300px; font-size: 20px" @click="buy = true"/>
           </div>
+
+          <q-dialog v-model="confirm" persistent>
+            <q-card style="width: 400px">
+              <q-card-section class="row items-center">
+                <q-avatar class="q-ml-sm" icon="mdi-account-question-outline" color="primary" text-color="white" />
+                <span class="q-ml-md">장바구니에 담으시겠습니까 ? </span>
+              </q-card-section>
+              <q-card-actions align="right" class="q-pr-md">
+                <q-btn flat label="아니요" color="primary" v-close-popup />
+                <q-btn flat label="네, 담을래요!" color="primary" v-close-popup />
+              </q-card-actions>
+            </q-card>
+          </q-dialog>
+
+          <q-dialog v-model="buy" persistent>
+            <q-card style="width: 400px">
+              <q-card-section class="row items-center">
+                <q-avatar class="q-ml-sm" icon="mdi-currency-usd-circle-outline" color="primary" text-color="white" />
+                <span class="q-ml-md">구매하시겠습니까 ? </span>
+              </q-card-section>
+              <q-card-actions align="right" class="q-pr-md">
+                <q-btn flat label="아니요" color="primary" v-close-popup />
+                <q-btn flat label="네, 살래요!" color="primary" v-close-popup />
+              </q-card-actions>
+            </q-card>
+          </q-dialog>
+
         </div>
       </div>
-      <div>
+      <!-- <div>
         <div class="text-h6 text-secondary q-pt-xl">같이 본 상품</div>
         <div class="row">
           <div><q-btn class="q-pt-xl" flat color="secondary" icon="mdi-chevron-left" size="xl"/></div>
@@ -52,12 +80,6 @@
             <div>국산 하이큐 네임펜</div>
             <div class="text-secondary">12000원</div>
           </div>
-          <!-- 상품 복붙 -->
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
 
           <div class="q-pt-md">
             <img src="image/1.png" style="width: 160px; height: 100px;">
@@ -82,13 +104,16 @@
             <div>국산 하이큐 네임펜</div>
             <div class="text-secondary">12000원</div>
           </div>
-          <!-- 상품 복붙 -->
+
+          <div class="q-pt-md">
+            <img src="image/1.png" style="width: 160px; height: 100px;">
+            <div>국산 하이큐 네임펜</div>
+            <div class="text-secondary">12000원</div>
+          </div>
           <div><q-btn class="q-pt-xl" flat color="secondary" icon="mdi-chevron-right" size="xl"/></div>
         </div>
-
-        <DetailBottom/>
-
-      </div>
+      </div> -->
+      <DetailBottom/>
     </div>
   </div>
 </template>
@@ -144,16 +169,25 @@ export default {
   data () {
     return {
       product: null,
+      products: [],
       count: 1,
-      item: this.$store.state.items.find(item => item.id === this.$route.params.id)
+      item: this.$store.state.items.find(item => item.id === this.$route.params.id),
+      confirm: false,
+      buy: false
     }
   },
   methods: {
-    onClick () {
-      this.product = null
+    // onClick () {
+    //   this.product = null
+    // },
+    // onSelect () {
+    //   this.count = 1
+    // },
+    onAdd () {
+      this.products.push(this.product)
     },
-    onSelect () {
-      this.count = 1
+    onDelete () {
+      this.products.splice(this.product, 1)
     }
   }
 }

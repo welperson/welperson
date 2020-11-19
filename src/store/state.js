@@ -1,5 +1,7 @@
 export default function () {
   return {
+    count: 10,
+    check: 1,
     items: [
       {
         id: '1',
@@ -11,8 +13,6 @@ export default function () {
         opts: ['실버', '화이트', '블랙'],
         review: 1000,
         types: ['best', 'tech'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: false
       },
@@ -26,8 +26,6 @@ export default function () {
         opts: ['검정', '파랑', '빨강'],
         review: 20,
         types: ['new', 'best', 'office'],
-        cart: false,
-        cartCnt: 0,
         team: true,
         fit: true
       },
@@ -41,8 +39,6 @@ export default function () {
         opts: ['실버', '화이트', '블랙'],
         review: 13,
         types: ['new', 'best', 'office'],
-        cart: false,
-        artCnt: 0,
         team: true,
         fit: true
       },
@@ -56,8 +52,6 @@ export default function () {
         opts: ['블루', '네이비', '그레이', '레드'],
         review: 198,
         types: ['new', 'office'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: true
       },
@@ -71,8 +65,6 @@ export default function () {
         opts: ['블랙'],
         review: 250,
         types: ['best', 'tech'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -86,8 +78,6 @@ export default function () {
         opts: ['메이플', '화이트', '그레이'],
         review: 1996,
         types: ['new', 'home'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: false
       },
@@ -101,8 +91,6 @@ export default function () {
         opts: ['블랙', '베이지', '우든'],
         review: 1,
         types: ['new', 'tech'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -116,8 +104,6 @@ export default function () {
         opts: ['21호', '22호', '23호'],
         review: 1298,
         types: ['new', 'beauty'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -131,8 +117,6 @@ export default function () {
         opts: ['단일'],
         review: 10024,
         types: ['best', 'beauty'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: true
       },
@@ -146,8 +130,6 @@ export default function () {
         opts: ['230', '240', '250', '260'],
         review: 384,
         types: ['fashion'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: false
       },
@@ -161,8 +143,6 @@ export default function () {
         opts: ['602호', '612호', '618호'],
         review: 1207,
         types: ['best', 'beauty'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -176,8 +156,6 @@ export default function () {
         opts: ['세비어'],
         review: 53,
         types: ['new', 'fashion'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: false
       },
@@ -191,8 +169,6 @@ export default function () {
         opts: ['베이지', '화이트', '블랙', '핑크'],
         review: 47,
         types: ['new', 'fashion'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -206,8 +182,6 @@ export default function () {
         opts: ['매콤해물'],
         review: 685,
         types: ['best', 'food'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: true
       },
@@ -221,8 +195,6 @@ export default function () {
         opts: ['마이셰프 밀푀유나베 & 칼국수'],
         review: 4291,
         types: ['new', 'food'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: false
       },
@@ -236,8 +208,6 @@ export default function () {
         opts: ['골드', '슬림'],
         review: 16082,
         types: ['best', 'new', 'food'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: true
       },
@@ -251,8 +221,6 @@ export default function () {
         opts: ['샴푸'],
         review: 20135,
         types: ['best', 'new', 'beauty', 'home'],
-        cart: true,
-        cartCnt: 1,
         team: false,
         fit: false
       },
@@ -266,8 +234,6 @@ export default function () {
         opts: ['물걸레 청소포'],
         review: 3186,
         types: ['best', 'new', 'home'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: false
       },
@@ -281,15 +247,33 @@ export default function () {
         opts: ['라벤더 바닐라', '라일락 블라썸', '레몬 라벤더', '로맨틱 비치', '로즈마리', '미드나잇 자스민'],
         review: 1338,
         types: ['best', 'home'],
-        cart: true,
-        cartCnt: 1,
         team: true,
         fit: true
       }
     ],
-    carts: ['1', '2', '3'],
+    carts: [
+      { id: '1', count: 1 },
+      { id: '2', count: 1 },
+      { id: '3', count: 1 },
+      { id: '6', count: 1 },
+      { id: '9', count: 1 },
+      { id: '14', count: 1 },
+      { id: '18', count: 1 }
+    ],
 
-    heart: ['1', '2'],
+    heart: ['1', '3', '5', '6', '10', '11', '12', '15', '18'],
+
+    // hearts: [
+    //   { id: '1', heart: true },
+    //   { id: '3', heart: true },
+    //   { id: '5', heart: true },
+    //   { id: '6', heart: true },
+    //   { id: '7', heart: true },
+    //   { id: '8', heart: true },
+    //   { id: '10', heart: true },
+    //   { id: '14', heart: true },
+    //   { id: '18', heart: true }
+    // ],
 
     adds: [
       {

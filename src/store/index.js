@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import state from './state'
-// import mutation from './mutation'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     state,
+    mutations,
     strict: process.env.DEV
   })
 

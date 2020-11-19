@@ -8,7 +8,7 @@
       </div>
       <hr>
 
-      <div v-for="item in cartItems" :key="item.id">
+      <!-- <div v-for="item in cartItems" :key="item.id">
         <div class="row q-px-xl q-py-sm">
           <div><q-checkbox size="sm" :val="item.id" v-model="cartCheck" style="padding-top: 30px"/></div>
           <div class="col-sm-5 col-md-2"><img class="cartImg" :src="item.img" style="width: 150px; height: 100px;"></div>
@@ -17,18 +17,44 @@
             <div>{{ item.exp }}</div>
           </div>
           <div style="padding-top: 40px;">
-            <q-btn size="xs" label="-" @click="item.cartCnt--" />
+            <q-btn size="xs" label="-" @click="cartItems.count--" />
             <input style="width: 30px" type="text" v-model="item.cartCnt">
-            <q-btn size="xs" label="+" @click="item.cartCnt++" />
+            <q-btn size="xs" label="+" @click="cartItems.count++" />
           </div>
           <div class="row q-pl-xl">
-            <div style="padding-top: 40px;">{{ 0 + item.price*item.cartCnt }} 원</div>
-            <div style="padding-top: 33px; padding-left: 38px"><q-btn flat label="X" @click="onRemove(item)"/></div>
+            <div style="padding-top: 40px; width: 100px">{{ 0 + item.price*item.cartCnt }} 원</div>
+            <div style="padding-top: 33px;"><q-btn flat label="X" @click="onRemove(item)"/></div>
+          </div>
+        </div>
+        <hr>
+      </div> -->
+
+      <div v-for="cartItem in cartItems" :key="cartItem.id">
+        <div class="row q-px-xl q-py-sm">
+          <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck" style="padding-top: 30px"/></div>
+          <div class="col-xs-10 col-sm-3 col-md-2 col-lg-2"><img class="cartImg" :src="cartItem.img" style="width: 150px; height: 100px;"></div>
+          <div class="col-xs-10 col-sm-8 col-md-7 col-lg-5 namebox text-secondary q-pl-lg" style="padding-top: 30px;">
+            <div class="text-h5">{{ cartItem.name }}</div>
+            <div>{{ cartItem.exp }}</div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-2" style="padding-top: 40px;">
+            <q-btn size="xs" label="-" @click="cartItem.count--" />
+            <input style="width: 30px" type="text" v-model="cartItem.count">
+            <q-btn size="xs" label="+" @click="cartItem.count++" />
+          </div>
+          <div class="row q-pl-xl">
+            <div style="padding-top: 40px; width: 100px">{{ 0 + cartItem.price*cartItem.count }} 원</div>
+            <div style="padding-top: 33px;"><q-btn flat label="X" @click="onRemove(cartItem)"/></div>
           </div>
         </div>
         <hr>
       </div>
-
+    <!-- <div v-for="cartItem in $store.state.carts" :key="cartItem.id">
+      {{ getItem(cartItem.id).id }}
+      {{ getItem(cartItem.id).name }}
+      {{ getItem(cartItem.id).price }}
+      {{ cartItem.count }}
+    </div> -->
     </div>
   </div>
 </template>
@@ -39,25 +65,31 @@ export default {
   data () {
     return {
       cartCheck: [],
-      cartItems: this.$store.state.items.filter(item => item.cart === true)
+      // cartItems: this.$store.state.items.filter(item => item.cart === true)
       // cartItems: this.$store.state.items.filter(item => this.$store.state.carts.includes(item.id))
+      cartItems: this.$store.state.carts.map(c => {
+        const item = this.$store.state.items.find(item => item.id === c.id)
+        return { ...item, ...c }
+      })
     }
   },
   methods: {
-    onRemove (item) {
+    onRemove (cartItem) {
       // console.log(item)
-      this.cartItems.splice(item, 1)
+      this.cartItems = this.cartItems.filter(x => x.id !== cartItem.id)
     },
     onSelRem () {
       if (this.cartCheck !== null) {
         for (var i = 0; i < this.cartCheck.length; i++) {
-          const index = this.cartItems.indexOf(this.cartCheck[i])
-          this.cartItems.splice(index, 1)
+          this.cartItems = this.cartItems.filter(x => x.id !== this.cartCheck[i])
         }
       }
     }
   },
   computed: {
+    // getItem () {
+    //   return id => this.$store.state.items.find(item => item.id === id)
+    // },
     selectAll: {
       get: function () {
         return this.cartItems ? this.cartCheck.length === this.cartItems.length : false
@@ -65,8 +97,8 @@ export default {
       set: function (value) {
         var cartCheck = []
         if (value) {
-          this.cartItems.forEach(function (item) {
-            cartCheck.push(item.id)
+          this.cartItems.forEach(function (cartItem) {
+            cartCheck.push(cartItem.id)
           })
         }
         this.cartCheck = cartCheck
