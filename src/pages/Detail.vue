@@ -15,27 +15,29 @@
           <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-3 q-pt-md">상품을 선택하세요</div>
             <div class="col-9">
-              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd"/>
+              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd" @click="total"/>
             </div>
           </div>
           <div class="product-box" v-for="product in products" :key="product">
             <!-- v-if="product !== null" -->
             <div class="row q-py-sm">
-              <div class="q-pt-sm q-pl-sm">{{ product }}</div><q-space/>
+              <div class="q-pt-sm q-pl-sm">{{ product.name }}</div><q-space/>
               <div><q-btn flat label="X" @click="onDelete()"/></div>
             </div>
             <div class="row q-pb-xs">
               <div class="q-pl-sm">
-                <q-btn size="xs" label="-" @click="count--" />
-                <input style="width: 30px" type="text" v-model="count">
-                <q-btn size="xs" label="+" @click="count++" />
+                <q-btn size="xs" label="-" v-if="product.count > 0" @click="product.count--" />
+                <q-btn size="xs" label="-" v-else />
+                <input style="width: 30px" type="text" v-model="product.count">
+                <q-btn size="xs" label="+" @click="product.count++" />
               </div><q-space/>
-              <div class="q-pr-sm">{{ 0 + item.price*count }} 원</div>
+              <div class="q-pr-sm">{{ 0 + item.price*product.count }} 원</div>
             </div>
           </div>
           <div class="row q-pt-xl"><q-space/>
             <div class="text-h6 q-pt-md">총 상품금액</div>
-            <div class="text-h3 q-pt-xs q-pl-sm">{{ 0 + item.price*count }} 원</div>
+            <!-- <div class="text-h3 q-pt-xs q-pl-sm" >{{ 0 + item.price*count }} 원</div> -->
+            <div class="text-h3 q-pt-xs q-pl-sm" >{{ total }} 원</div>
           </div>
           <div class="row q-pt-xl"><q-space/>
             <q-btn flat icon="mdi-heart-outline" class="text-primary" size="xl"/>
@@ -170,21 +172,16 @@ export default {
     return {
       product: null,
       products: [],
-      count: 1,
       item: this.$store.state.items.find(item => item.id === this.$route.params.id),
       confirm: false,
-      buy: false
+      buy: false,
+      total: 0
     }
   },
   methods: {
-    // onClick () {
-    //   this.product = null
-    // },
-    // onSelect () {
-    //   this.count = 1
-    // },
     onAdd () {
-      this.products.push(this.product)
+      this.products.push({ name: this.product, count: 1 })
+      // this.products.push({ ...this.product, count: 1 })
     },
     onDelete () {
       this.products.splice(this.product, 1)

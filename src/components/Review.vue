@@ -8,9 +8,8 @@
         <div class="q-pl-md q-pt-md" style="font-size: 20px">2019.10.15</div>
       </div>
       <div class="q-pt-md">
-        <span>만두 너무 맛있어서 마트에서 계속 사먹다가 <br>
-        이제 여기서만 주문하고 있습니다 ~~ <br>
-        고기가 중간중간 씹히고 얇은 피에 냄새도 안나고 너무너무 맛있습니다 :)</span>
+        <span>너무 너무 만족합니다 !!<br>
+        지인들에게도 추천하고 있어용 ㅎㅎ <br></span>
       </div>
     </div>
 

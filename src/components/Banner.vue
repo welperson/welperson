@@ -1,7 +1,6 @@
 <template>
-  <div>
-
-    <q-tab-panels v-model="tab" animated class="bg-primary" style="height: 300px; padding-left: 400px">
+  <div class="banner">
+    <q-tab-panels v-model="tab" animated class="bg-primary" style="height: 300px;">
       <q-tab-panel name="b1" >
         <div class="row">
           <div class="col-4">
@@ -82,7 +81,7 @@
       </q-tab-panel>
     </q-tab-panels>
     <div>
-      <q-tabs v-model="tab" class="text-secondary" style="top: -48px; left: 500px">
+      <q-tabs v-model="tab" class="text-secondary">
         <q-tab icon="mdi-circle" name="b1" />
         <q-tab icon="mdi-circle" name="b2" />
         <q-tab icon="mdi-circle" name="b3" />
@@ -90,6 +89,27 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.banner
+  .q-tab-panels
+    padding-left: 400px
+    @media (max-width: $breakpoint-md)
+      padding-left: 100px
+    @media (max-width: $breakpoint-sm)
+      padding-left: 50px
+    @media (max-width: $breakpoint-xs)
+      padding-left: 0px
+  .q-tabs
+    top: -48px
+    left: 500px
+    @media (max-width: $breakpoint-md)
+      left: 300px
+    @media (max-width: $breakpoint-sm)
+      left: 250px
+    @media (max-width: $breakpoint-xs)
+      left: 50px
+</style>
 
 <script>
 export default {

@@ -18,8 +18,9 @@
         </div>
         <q-space/>
         <div>
-          <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl"/>
-          <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl"/>
+          <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" />
+          <!-- @click="isHeart = !isHeart" mutations에서 바꾸기-->
+          <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" />
         </div>
       </div>
     </div>
