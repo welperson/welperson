@@ -14,7 +14,7 @@
           </q-item>
         </template>
       </q-select>
-      <q-btn flat color="secondary" label="로그아웃"/>
+      <q-btn flat color="secondary" label="로그아웃" @click="logout = true"/>
     </q-toolbar>
     <q-toolbar>
       <img class="logo absolute-center" src="icons/logo.png" alt="logo" @click="$router.push('/')">
@@ -28,6 +28,19 @@
       <q-btn flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
       <q-btn flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
     </q-toolbar>
+
+    <q-dialog v-model="logout" persistent>
+            <q-card style="width: 400px">
+              <q-card-section class="row items-center">
+                <q-avatar class="q-ml-sm" icon="mdi-emoticon-sad" color="primary" text-color="white" />
+                <span class="q-ml-md">정말로 나가시겠습니까 ? </span>
+              </q-card-section>
+              <q-card-actions align="right" class="q-pr-md">
+                <q-btn flat label="아니요 ㅠㅠ" color="primary" v-close-popup />
+                <q-btn flat label="네, 나갈래요!" color="primary" v-close-popup />
+              </q-card-actions>
+            </q-card>
+          </q-dialog>
   </q-header>
 </template>
 
@@ -45,6 +58,7 @@ export default {
   name: 'AppHeader',
   data () {
     return {
+      logout: false,
       selected: '김유니 님',
       options: [
         {
