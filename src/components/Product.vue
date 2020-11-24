@@ -18,9 +18,8 @@
         </div>
         <q-space/>
         <div>
-          <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" />
-          <!-- @click="isHeart = !isHeart" mutations에서 바꾸기-->
-          <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" />
+          <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
+          <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
         </div>
       </div>
     </div>
@@ -47,6 +46,11 @@ export default {
 
     }
   },
+  // methods: {
+  //   in (payload) {
+  //     this.$store.commit('inHeart', payload)
+  //   }
+  // },
   computed: {
     isHeart () {
       return this.$store.state.heart.includes(this.item.id)

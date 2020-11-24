@@ -15,14 +15,14 @@
           <div class="row">
             <div class="col-xs-9 col-sm-9 col-md-3 q-pt-md">상품을 선택하세요</div>
             <div class="col-9">
-              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd" @click="total"/>
+              <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd"/>
             </div>
           </div>
-          <div class="product-box" v-for="product in products" :key="product">
+          <div class="product-box" v-for="product in products" :key="product.id">
             <!-- v-if="product !== null" -->
             <div class="row q-py-sm">
               <div class="q-pt-sm q-pl-sm">{{ product.name }}</div><q-space/>
-              <div><q-btn flat label="X" @click="onDelete()"/></div>
+              <div><q-btn flat label="X" @click="onDelete(product)"/></div>
             </div>
             <div class="row q-pb-xs">
               <div class="q-pl-sm">
@@ -36,11 +36,11 @@
           </div>
           <div class="row q-pt-xl"><q-space/>
             <div class="text-h6 q-pt-md">총 상품금액</div>
-            <!-- <div class="text-h3 q-pt-xs q-pl-sm" >{{ 0 + item.price*count }} 원</div> -->
-            <div class="text-h3 q-pt-xs q-pl-sm" >{{ total }} 원</div>
+            <div class="text-h3 q-pt-xs q-pl-sm">{{ total }} 원</div>
           </div>
           <div class="row q-pt-xl"><q-space/>
-            <q-btn flat icon="mdi-heart-outline" class="text-primary" size="xl"/>
+            <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
+            <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
             <q-btn flat icon="mdi-cart-outline" class="text-primary" size="xl" @click="confirm = true"/>
             <q-btn push color="primary" label="구매하기" style="width: 300px; font-size: 20px" @click="buy = true"/>
           </div>
@@ -174,17 +174,29 @@ export default {
       products: [],
       item: this.$store.state.items.find(item => item.id === this.$route.params.id),
       confirm: false,
-      buy: false,
-      total: 0
+      buy: false
+    }
+  },
+  computed: {
+    total () {
+      let sum = 0
+      this.products.forEach(p => {
+        console.log(p)
+        sum += p.price * p.count
+      })
+      return sum
+    },
+    isHeart () {
+      return this.$store.state.heart.includes(this.item.id)
     }
   },
   methods: {
     onAdd () {
-      this.products.push({ name: this.product, count: 1 })
+      this.products.push({ name: this.product, count: 1, price: this.item.price })
       // this.products.push({ ...this.product, count: 1 })
     },
-    onDelete () {
-      this.products.splice(this.product, 1)
+    onDelete (product) {
+      this.products = this.products.filter(x => x.name !== product.name)
     }
   }
 }
