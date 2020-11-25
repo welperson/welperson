@@ -53,6 +53,7 @@
               </q-card-section>
               <q-card-actions align="right" class="q-pr-md">
                 <q-btn flat label="아니요" color="primary" v-close-popup />
+                <!-- <q-btn flat label="네, 담을래요!" color="primary" @click="$store.commit('inCart', item)" v-close-popup /> -->
                 <q-btn flat label="네, 담을래요!" color="primary" v-close-popup />
               </q-card-actions>
             </q-card>
@@ -61,7 +62,7 @@
           <q-dialog v-model="buy" persistent>
             <q-card style="width: 400px">
               <q-card-section class="row items-center">
-                <q-avatar class="q-ml-sm" icon="mdi-currency-usd-circle-outline" color="primary" text-color="white" />
+                <q-avatar class="q-ml-sm" icon="mdi-currency-usd" color="primary" text-color="white" />
                 <span class="q-ml-md">구매하시겠습니까 ? </span>
               </q-card-section>
               <q-card-actions align="right" class="q-pr-md">

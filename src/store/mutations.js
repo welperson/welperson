@@ -8,10 +8,10 @@ export default {
     } else {
       state.heart = state.heart.filter(x => x !== id)
     }
+  },
+  inCart (state, payload) {
+    if (payload.id !== '') {
+      state.carts.push({ id: payload.id, count: 1 })
+    }
   }
-  // inCart (state, id) {
-  //   if (!state.carts.find(id)) {
-  //     state.carts.push({ id: id, count: 1 })
-  //   }
-  // }
 }

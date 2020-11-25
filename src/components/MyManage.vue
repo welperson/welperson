@@ -20,9 +20,12 @@
     <div class="row q-py-sm manage">
       <div class="col-xs-10 col-sm-5 col-md-4 text-h6">관심 카테고리</div>
       <div class="col-md-6">
-        <q-checkbox size="sm" label="뷰티" val="뷰티" v-model="cate1"/>
-        <q-checkbox size="sm" label="가전" val="가전" v-model="cate2"/>
-        <q-checkbox size="sm" label="여행" val="여행" v-model="cate3"/>
+        <q-checkbox size="sm" label="테크/가전" val="테크/가전" v-model="cate1"/>
+        <q-checkbox size="sm" label="패션/잡화" val="패션/잡화" v-model="cate2"/>
+        <q-checkbox size="sm" label="뷰티" val="뷰티" v-model="cate3"/>
+        <q-checkbox size="sm" label="푸드" val="푸드" v-model="cate4"/>
+        <q-checkbox size="sm" label="사무용품" val="사무용품" v-model="cate5"/>
+        <q-checkbox size="sm" label="홈리빙" val="홈리빙" v-model="cate6"/>
       </div>
     </div>
     <div class="q-pt-md" style="text-align: center"><q-btn color="primary" label="회원정보수정"/></div>
@@ -45,7 +48,10 @@ export default {
     return {
       cate1: true,
       cate2: false,
-      cate3: false
+      cate3: false,
+      cate4: false,
+      cate5: false,
+      cate6: false
     }
   }
 }

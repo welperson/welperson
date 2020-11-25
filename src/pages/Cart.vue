@@ -8,34 +8,14 @@
       </div>
       <hr>
 
-      <!-- <div v-for="item in cartItems" :key="item.id">
-        <div class="row q-px-xl q-py-sm">
-          <div><q-checkbox size="sm" :val="item.id" v-model="cartCheck" style="padding-top: 30px"/></div>
-          <div class="col-sm-5 col-md-2"><img class="cartImg" :src="item.img" style="width: 150px; height: 100px;"></div>
-          <div class="col-xs-10 col-sm-7 col-md-5 text-secondary" style="padding-top: 30px">
-            <div class="text-h5">{{ item.name }}</div>
-            <div>{{ item.exp }}</div>
-          </div>
-          <div style="padding-top: 40px;">
-            <q-btn size="xs" label="-" @click="cartItems.count--" />
-            <input style="width: 30px" type="text" v-model="item.cartCnt">
-            <q-btn size="xs" label="+" @click="cartItems.count++" />
-          </div>
-          <div class="row q-pl-xl">
-            <div style="padding-top: 40px; width: 100px">{{ 0 + item.price*item.cartCnt }} 원</div>
-            <div style="padding-top: 33px;"><q-btn flat label="X" @click="onRemove(item)"/></div>
-          </div>
-        </div>
-        <hr>
-      </div> -->
-
       <div v-for="cartItem in cartItems" :key="cartItem.id">
         <div class="row q-px-xl q-py-sm">
           <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck" style="padding-top: 30px"/></div>
           <div class="col-xs-10 col-sm-3 col-md-5 col-lg-2"><img class="cartImg" :src="cartItem.img" style="width: 150px; height: 100px;"></div>
-          <div class="col-xs-10 col-sm-8 col-md-5 col-lg-5 namebox text-secondary q-pl-lg" style="padding-top: 30px;">
+          <div class="col-xs-10 col-sm-8 col-md-5 col-lg-5 namebox text-secondary q-pl-lg" style="padding-top: 20px;">
             <div class="text-h5">{{ cartItem.name }}</div>
             <div>{{ cartItem.exp }}</div>
+            <div class="q-pt-sm"> {{ cartItem.opts[0]}}</div>
           </div>
           <div class="col-sm-6 col-md-7 col-lg-2" style="padding-top: 40px;">
             <q-btn size="xs" label="-" v-if="cartItem.count > 0" @click="cartItem.count--" />
@@ -94,7 +74,8 @@ export default {
         const item = this.$store.state.items.find(item => item.id === c.id)
         return { ...item, ...c }
       }),
-      buy: false
+      buy: false,
+      product: null
     }
   },
   computed: {

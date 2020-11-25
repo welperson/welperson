@@ -2,18 +2,63 @@
   <q-header class="bg-white text-secondary" >
     <q-toolbar>
       <q-space/>
-      <q-select class="selectBox" borderless v-model="selected" :options="options" @input="move">
-        <template v-slot:option="scope">
-          <q-item v-bind="scope.itemProps" v-on="scope.itemEvents">
-            <q-item-section avatar>
-              <q-icon :name="scope.opt.icon"/>
-            </q-item-section>
-            <q-item-section>
-              <q-item-label v-html="scope.opt.label" />
-            </q-item-section>
-          </q-item>
-        </template>
-      </q-select>
+      <q-btn-dropdown flat color="primary" label="김유니 님" style="width : 150px">
+      <q-list>
+        <q-item clickable v-close-popup @click="onRoute('history')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-gift-outline" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>주문 내역</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onRoute('delivery')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-truck-delivery-outline" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>배송지 관리</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onRoute('reservation')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-airplane" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>예약 조회</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onRoute('review')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-border-color" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>상품 후기</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onRoute('question')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-comment-question-outline" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>문의 내역</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onRoute('manage')">
+          <q-item-section avatar>
+            <q-avatar icon="mdi-account" text-color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>개인 정보 관리</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
       <q-btn flat color="secondary" label="로그아웃" @click="logout = true"/>
     </q-toolbar>
     <q-toolbar>
@@ -58,46 +103,14 @@ export default {
   name: 'AppHeader',
   data () {
     return {
-      logout: false,
-      selected: '김유니 님',
-      options: [
-        {
-          label: '주문 내역',
-          value: 1,
-          icon: 'mdi-gift-outline'
-        },
-        {
-          label: '배송지 관리',
-          value: 2,
-          icon: 'mdi-truck-delivery-outline'
-        },
-        {
-          label: '예약 조회',
-          value: 3,
-          icon: 'mdi-airplane'
-        },
-        {
-          label: '상품 후기',
-          value: 4,
-          icon: 'mdi-border-color'
-        },
-        {
-          label: '문의 내역',
-          value: 5,
-          icon: 'mdi-comment-question-outline'
-        },
-        {
-          label: '개인 정보 관리',
-          value: 6,
-          icon: 'mdi-account'
-        }
-        // '주문 내역', '배송지 관리', '예약 조회', '상품 후기', '문의 내역', '개인 정보 관리'
-      ]
+      logout: false
     }
   },
   methods: {
-    move () {
-      this.$router.push('/mypage')
+    onRoute (tab) {
+      if (tab !== this.$route.query.tab) {
+        this.$router.replace(`/mypage?tab=${tab}`)
+      }
     }
   }
 }

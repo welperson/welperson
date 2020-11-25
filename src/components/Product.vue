@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      <q-btn flat @click="$router.push(`/detail/${item.id}`)"><img :src="item.img" class="productImage inline-block"> </q-btn>
+      <q-btn flat round dense @click="$router.push(`/detail/${item.id}`)"><img :src="item.img" class="productImage"> </q-btn>
       <!-- <q-btn flat icon="mdi-heart-outline" color="primary" size="xl" style="position: relative; left: 90px; top: -65px; z-index: 2;"/> -->
     </div>
     <div>
       <!-- style="position: relative; z-index: 3; top: -50px" -->
       <div class="row">
-        <div>
-          <div style="width: 215px">{{ item.name }}</div>
+        <div class="col-xs-8 col-sm-9 col-md-9 col-lg-8">
+          <div style="width: 200px">{{ item.name }}</div>
           <div>
             <span v-if="item.salePrice > 0" style="color: #a6a6a6">{{ item.salePrice }}원 </span>
             <span v-else></span>
@@ -17,7 +17,7 @@
           <div class="text-h6 q-pt-xs" style="color: #a6a6a6">리뷰 ({{ item.review }})</div>
         </div>
         <q-space/>
-        <div>
+        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
           <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
           <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
         </div>
