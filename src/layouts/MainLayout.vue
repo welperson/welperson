@@ -5,6 +5,7 @@
       <router-view />
     </q-page-container>
     <app-footer />
+    <app-page-scroller />
   </q-layout>
 </template>
 
@@ -12,15 +13,15 @@
 import AppHeader from './components/AppHeader'
 // import AppDrawer from './components/AppDrawer'
 import AppFooter from './components/AppFooter'
-// import AppPageScroller from './components/AppPageScroller'
+import AppPageScroller from './components/AppPageScroller'
 
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
     // AppDrawer,
-    AppFooter
-    // AppPageScroller
+    AppFooter,
+    AppPageScroller
   }
 }
 </script>
