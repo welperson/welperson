@@ -15,13 +15,13 @@ const routes = [
         path: 'category',
         component: () => import('pages/category.vue'),
         children: [
-          { path: '', component: () => import('components/All.vue') },
-          { path: 'tech', component: () => import('components/Tech.vue') },
-          { path: 'fashion', component: () => import('components/Fashion.vue') },
-          { path: 'beauty', component: () => import('components/Beauty.vue') },
-          { path: 'food', component: () => import('components/Food.vue') },
-          { path: 'office', component: () => import('components/Office.vue') },
-          { path: 'home', component: () => import('components/Home.vue') }
+          { path: '', component: () => import('components/Cates/All.vue') },
+          { path: 'tech', component: () => import('components/Cates/Tech.vue') },
+          { path: 'fashion', component: () => import('components/Cates/Fashion.vue') },
+          { path: 'beauty', component: () => import('components/Cates/Beauty.vue') },
+          { path: 'food', component: () => import('components/Cates/Food.vue') },
+          { path: 'office', component: () => import('components/Cates/Office.vue') },
+          { path: 'home', component: () => import('components/Cates/Home.vue') }
         ]
       }
     ]

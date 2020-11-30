@@ -46,14 +46,14 @@
 </style>
 
 <script>
-import MyInfo from 'components/MyInfo'
-import ManageMenu from 'components/ManageMenu'
-import MyOrder from 'components/MyOrder'
-import MyDelivery from 'components/MyDelivery.vue'
-import MyReservation from 'components/MyReservation.vue'
-import MyReview from 'components/MyReview.vue'
-import MyQuestion from 'components/MyQuestion.vue'
-import MyManage from 'components/MyManage.vue'
+import MyInfo from 'components/My/MyInfo'
+import ManageMenu from 'components/My/ManageMenu'
+import MyOrder from 'components/My/MyOrder'
+import MyDelivery from 'components/My/MyDelivery.vue'
+import MyReservation from 'components/My/MyReservation.vue'
+import MyReview from 'components/My/MyReview.vue'
+import MyQuestion from 'components/My/MyQuestion.vue'
+import MyManage from 'components/My/MyManage.vue'
 
 export default {
   name: 'MyPage',

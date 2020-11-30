@@ -14,12 +14,10 @@
 .desImg
   width: 890px
   height: 820px
-  @media (max-width: $breakpoint-sm)
-    width: 570px
-    height: 500px
-  @media (max-width: $breakpoint-xs)
-    width: 350px
-    height: 300px
+  .detailImg
+  @media (max-width: $breakpoint-md)
+    width: 100%
+    height: 100%
 </style>
 
 <script>

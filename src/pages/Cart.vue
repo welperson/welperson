@@ -112,7 +112,6 @@ export default {
   },
   methods: {
     onRemove (cartItem) {
-      // console.log(item)
       this.cartItems = this.cartItems.filter(x => x.id !== cartItem.id)
     },
     onSelRem () {

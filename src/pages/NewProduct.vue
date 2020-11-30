@@ -21,7 +21,7 @@ export default {
   },
   data () {
     return {
-      newItem: this.$store.state.items.filter(item => item.types.includes('new'))
+      newItem: this.$store.getters.getCom('new')
     }
   }
 }

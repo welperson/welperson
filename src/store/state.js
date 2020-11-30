@@ -2,6 +2,8 @@ export default function () {
   return {
     count: 10,
     check: 1,
+    point: '1,000,000',
+    accum: 39,
     items: [
       {
         id: '1',
@@ -262,28 +264,6 @@ export default function () {
     ],
 
     heart: ['1', '3', '5', '6', '10', '11', '12', '15', '18'],
-
-    // hearts: [
-    //   { id: '1', zzim: true },
-    //   { id: '2', zzim: false },
-    //   { id: '3', zzim: true },
-    //   { id: '4', zzim: false },
-    //   { id: '5', zzim: true },
-    //   { id: '6', zzim: true },
-    //   { id: '7', zzim: false },
-    //   { id: '8', zzim: false },
-    //   { id: '9', zzim: false },
-    //   { id: '10', zzim: true },
-    //   { id: '11', zzim: true },
-    //   { id: '12', zzim: true },
-    //   { id: '13', zzim: false },
-    //   { id: '14', zzim: true },
-    //   { id: '15', zzim: false },
-    //   { id: '16', zzim: true },
-    //   { id: '17', zzim: false },
-    //   { id: '18', zzim: true },
-    //   { id: '19', zzim: true }
-    // ],
 
     adds: [
       {

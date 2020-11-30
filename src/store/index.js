@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import state from './state'
 import mutations from './mutations'
+import getters from './getters'
 
 Vue.use(Vuex)
 
@@ -10,6 +11,7 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     state,
     mutations,
+    getters,
     strict: process.env.DEV
   })
 

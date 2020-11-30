@@ -3,58 +3,13 @@
     <q-toolbar class="q-pb-xl">
       <q-space/>
       <q-btn-dropdown flat color="primary" label="김유니 님" style="width : 130px">
-      <q-list>
-        <q-item clickable v-close-popup @click="onRoute('history')">
+      <q-list v-for="item in items" :key="item.id">
+        <q-item clickable v-close-popup @click="onRoute(item.id)">
           <q-item-section avatar>
-            <q-avatar icon="mdi-gift-outline" text-color="primary" />
+            <q-avatar :icon="item.icon" text-color="primary" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>주문 내역</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable v-close-popup @click="onRoute('delivery')">
-          <q-item-section avatar>
-            <q-avatar icon="mdi-truck-delivery-outline" text-color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>배송지 관리</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable v-close-popup @click="onRoute('reservation')">
-          <q-item-section avatar>
-            <q-avatar icon="mdi-airplane" text-color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>예약 조회</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable v-close-popup @click="onRoute('review')">
-          <q-item-section avatar>
-            <q-avatar icon="mdi-border-color" text-color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>상품 후기</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable v-close-popup @click="onRoute('question')">
-          <q-item-section avatar>
-            <q-avatar icon="mdi-comment-question-outline" text-color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>문의 내역</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable v-close-popup @click="onRoute('manage')">
-          <q-item-section avatar>
-            <q-avatar icon="mdi-account" text-color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>개인 정보 관리</q-item-label>
+            <q-item-label>{{ item.name }}</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
@@ -109,7 +64,15 @@ export default {
   name: 'AppHeader',
   data () {
     return {
-      logout: false
+      logout: false,
+      items: [
+        { id: 'history', name: '주문 내역', icon: 'mdi-gift-outline' },
+        { id: 'delivery', name: '배송지 관리', icon: 'mdi-truck-delivery-outline' },
+        { id: 'reservation', name: '예약 조회', icon: 'mdi-airplane' },
+        { id: 'review', name: '상품 후기', icon: 'mdi-border-color' },
+        { id: 'question', name: '문의 내역', icon: 'mdi-comment-question-outline' },
+        { id: 'manage', name: '개인 정보 관리', icon: 'mdi-account' }
+      ]
     }
   },
   methods: {

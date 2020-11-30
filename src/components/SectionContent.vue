@@ -6,7 +6,7 @@
         <span class="text-h4" style="color: #a6a6a6">이라면 필요할 걸 ?</span>
       </div>
       <div class="row items-start q-col-gutter-md">
-        <div class="column col-xs-12 col-sm-6 col-md-4 q-pa-xl" v-for="item in teamItem" :key="item.id">
+        <div class="column col-xs-12 col-sm-6 col-md-4 proDetail" v-for="item in teamItem" :key="item.id">
           <Product :item="item" />
         </div>
       </div>
@@ -18,8 +18,8 @@
         <span class="text-h3 text-primary">맞춤 상품 </span>
         <span class="text-h4" style="color: #a6a6a6">은 처음이지 ?</span>
       </div>
-      <div class="row items-start">
-        <div class="column col-xs-12 col-sm-6 col-md-4 q-pa-xl" v-for="item in fitItem" :key="item.id">
+      <div class="row items-start q-col-gutter-md" >
+        <div class="column col-xs-12 col-sm-6 col-md-4 proDetail" v-for="item in fitItem" :key="item.id">
           <Product :item="item"/>
         </div>
       </div>
@@ -28,20 +28,10 @@
 </template>
 
 <style lang="sass">
-// @media all and (max-width: $breakpoint-xs)
-//   .row
-//     .column
-
-// @media all and (max-width: 599px)
-//   .col-4
-//     float: left
-//     width: 50%
-//     &:nth-child(3n - 1)
-//       margin-right: 50px
-//       margin-left: 50px
-//     &:nth-child(3n + 1)
-//       clear: left
-
+.proDetail
+  padding: 50px
+  @media (max-width: $breakpoint-xs)
+    padding: 10px 0px 0px 0px
 </style>
 
 <script>

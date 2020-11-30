@@ -21,7 +21,7 @@ export default {
   },
   data () {
     return {
-      bestItem: this.$store.state.items.filter(item => item.types.includes('best'))
+      bestItem: this.$store.getters.getCom('best')
     }
   }
 }
