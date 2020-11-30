@@ -19,7 +19,7 @@
     </div>
     <div class="row q-py-sm manage">
       <div class="col-xs-10 col-sm-5 col-md-4 text-h6">관심 카테고리</div>
-      <div class="col-md-6">
+      <div class="col-xs-19 col-sm-7 col-md-7 col-lg-6">
         <q-checkbox size="sm" label="테크/가전" val="테크/가전" v-model="cate1"/>
         <q-checkbox size="sm" label="패션/잡화" val="패션/잡화" v-model="cate2"/>
         <q-checkbox size="sm" label="뷰티" val="뷰티" v-model="cate3"/>
@@ -38,7 +38,7 @@
   @media (max-width: $breakpoint-sm)
     padding-left: 100px
   @media (max-width: $breakpoint-xs)
-    padding-left: 60px
+    padding-left: 40px
 </style>
 
 <script>

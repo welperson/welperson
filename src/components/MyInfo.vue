@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-h1 text-primary">마이페이지</div>
-      <div class="row q-col-gutter-y-md" style="height: 100%">
+      <div class="row q-col-gutter-y-md" style="height: 100%; background-color: #d0f0fd">
         <div class="col col-xs-12 col-md-4">
           <div class="q-pt-lg"><span class="text-h1 text-bold q-pl-lg">김유니</span><span class="text-h3"> 님</span></div>
         </div>
@@ -25,7 +25,7 @@
   height: 200px
   .col
     padding: 40px 40px
-    border: 1px solid #ed6665
+    border: 1px solid #afe2f6
     text-align: left
 </style>
 

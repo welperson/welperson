@@ -9,6 +9,13 @@
   </q-layout>
 </template>
 
+<style lang="sass">
+// .content, .q-header, .intro, .banner
+//   font-family: "NanumBarunpen", Arial, Helvetica, sans-serif
+.content, .q-header, .intro, .banner
+  font-family: "NanumSquareRound", Arial, Helvetica, sans-serif
+</style>
+
 <script>
 import AppHeader from './components/AppHeader'
 // import AppDrawer from './components/AppDrawer'

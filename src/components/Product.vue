@@ -6,8 +6,8 @@
     </div>
     <div>
       <!-- style="position: relative; z-index: 3; top: -50px" -->
-      <div class="row">
-        <div class="col-xs-8 col-sm-9 col-md-9 col-lg-8">
+      <div class="row q-pt-sm">
+        <div class="col-xs-8 col-sm-10 col-md-10 col-lg-9">
           <div style="width: 200px">{{ item.name }}</div>
           <div>
             <span v-if="item.salePrice > 0" style="color: #a6a6a6">{{ item.salePrice }}원 </span>
@@ -17,9 +17,9 @@
           <div class="text-h6 q-pt-xs" style="color: #a6a6a6">리뷰 ({{ item.review }})</div>
         </div>
         <q-space/>
-        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-          <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
-          <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
+        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-3">
+          <q-btn v-if="isHeart" flat icon="mdi-heart" style="color: #ed6665" size="xl" @click="$store.commit('inHeart', item.id)" />
+          <q-btn v-else flat icon="mdi-heart-outline" style="color: #ed6665" size="xl" @click="$store.commit('inHeart', item.id)" />
         </div>
       </div>
     </div>
@@ -29,11 +29,8 @@
 <style lang="sass">
 .row
   .productImage
-    width: 260px
+    width: 300px
     height: 200px
-    // @media all and (max-width: 500px)
-    //   width: 300px
-    //   height: 250px
 
 </style>
 

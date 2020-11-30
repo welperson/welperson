@@ -2,7 +2,7 @@
   <div class="content">
     <div class="q-pa-lg">
       <div class="row">
-        <div class="col-0.5 q-pt-xs"><q-icon class="ic" name="mdi-heart" color="primary" size="xl"/></div>
+        <div class="col-0.5 q-pt-xs"><q-icon class="ic" name="mdi-heart" style="color: #ed6665" size="xl"/></div>
         <div class="text-h1 text-secondary">내가 찜한 리스트</div>
       </div>
       <div class="row items-start q-col-gutter-md">

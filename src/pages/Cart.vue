@@ -36,6 +36,11 @@
       {{ getItem(cartItem.id).price }}
       {{ cartItem.count }}
     </div> -->
+      <div class="row q-px-xl">
+        <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
+        <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
+      </div>
+
       <div class="q-py-lg">
         <div class="row"><q-space/>
           <div class="text-h6 q-pt-lg">총 상품금액</div>

@@ -4,17 +4,31 @@
   margin: 0 auto
   padding-left: 16px
   padding-right: 16px
+  @media (max-width: $breakpoint-xs)
+    padding: 0px 0px
 
 .content
   max-width: 1200px
   margin: 0 auto
   padding-left: 16px
   padding-right: 16px
-  @media (min-width: $breakpoint-sm)
-    padding:  40px 16px
+  @media (max-width: $breakpoint-sm)
+    padding:  40px 10px
+  @media (max-width: $breakpoint-xs)
+    padding: 0px 0px
 
 .outline-blue
   outline: 1px solid blue
 
 .outline-red
   outline: 1px solid red
+
+@font-face
+  font-family: "NanumBarunpen"
+  src: local("NanumBarunpen"), url(/fonts/NanumBarunpenR.ttf) format("truetype")
+
+  font-family: "NanumSquareRound"
+  src: local("NanumSquareRound"), url(/fonts/NanumSquareRoundR.ttf) format("truetype")
+
+  font-family: "NanumSquare_ac"
+  src: local("NanumSquare_ac"), url(/fonts/"NanumSquare_acR.ttf") format("truetype")

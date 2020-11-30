@@ -3,21 +3,21 @@
     <h4>배송지 관리</h4>
     <div class="delivery q-pt-md q-pb-xl">
       <div class="row text-h6 q-py-sm">
-        <div class="col-1" style="text-align: center">선택</div>
-        <div class="col-4" style="text-align: center">주소</div>
-        <div class="col-3" style="text-align: center">받으실 분</div>
-        <div class="col-3" style="text-align: center">연락처</div>
-        <div class="col-1" style="text-align: center">수정</div>
+        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" style="text-align: center">선택</div>
+        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4" style="text-align: center">주소</div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="text-align: center">받으실 분</div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="text-align: center">연락처</div>
+        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" style="text-align: center">수정</div>
       </div>
 
       <div class="row q-pt-lg" v-for="add in adds" :key="add.id">
-        <div class="col-1" style="text-align: center">
+        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" style="text-align: center">
           <q-radio keep-color color="primary" :val="add.id" v-model="select" />
         </div>
-        <div class="col-4" style="text-align: center">{{ add.address }}</div>
-        <div class="col-3" style="text-align: center">{{ add.person }}</div>
-        <div class="col-3" style="text-align: center">{{ add.num }}</div>
-        <div class="col-1" style="text-align: center">
+        <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4" style="text-align: center">{{ add.address }}</div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="text-align: center">{{ add.person }}</div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="text-align: center">{{ add.num }}</div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="text-align: center">
           <q-btn flat size="9px" icon="mdi-pencil-outline"/>
         </div>
       </div>

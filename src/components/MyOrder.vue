@@ -8,12 +8,12 @@
           <q-btn class="text-primary" flat label="주문상세보기"><q-icon right name="mdi-chevron-right"/></q-btn>
         </div>
         <div class="row">
-          <div class="col-xs-5 col-sm-4 col-md-3"><img src="image/2.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-pt-md">모던오피스 고급 스틸 연필꽂이</div>
+          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/2.png" style="width: 130px; height: 80px;"></div>
+          <div class="col-md-7 q-py-md">모던오피스 고급 스틸 연필꽂이</div>
         </div>
         <div class="row">
-          <div class="col-xs-5 col-sm-4 col-md-3"><img src="image/1.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-pt-md">국산 하이큐 네임펜</div>
+          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/1.png" style="width: 130px; height: 80px;"></div>
+          <div class="col-md-7 q-py-md">국산 하이큐 네임펜</div>
         </div>
       </div>
 
@@ -23,8 +23,8 @@
           <q-btn class="text-primary" flat label="주문상세보기"><q-icon right name="mdi-chevron-right"/></q-btn>
         </div>
         <div class="row">
-          <div class="col-xs-5 col-sm-4 col-md-3"><img src="image/3.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-pt-md">25절 A5 밴드 양장</div>
+          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/3.png" style="width: 130px; height: 80px;"></div>
+          <div class="col-md-7 q-py-md">25절 A5 밴드 양장</div>
         </div>
       </div>
     </div>

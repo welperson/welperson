@@ -1,8 +1,8 @@
 <template>
   <q-header class="bg-white text-secondary" >
-    <q-toolbar>
+    <q-toolbar class="q-pb-xl">
       <q-space/>
-      <q-btn-dropdown flat color="primary" label="김유니 님" style="width : 150px">
+      <q-btn-dropdown flat color="primary" label="김유니 님" style="width : 130px">
       <q-list>
         <q-item clickable v-close-popup @click="onRoute('history')">
           <q-item-section avatar>
@@ -62,16 +62,16 @@
       <q-btn flat color="secondary" label="로그아웃" @click="logout = true"/>
     </q-toolbar>
     <q-toolbar>
-      <img class="logo absolute-center" src="icons/logo.png" alt="logo" @click="$router.push('/')">
+      <img class="logo absolute-center q-px-xl" style="width: 430px;" src="icons/logo5.png" alt="logo" @click="$router.push('/')">
     </q-toolbar>
-    <q-toolbar>
-      <q-btn flat color="accent" label="카테고리" icon="mdi-menu" @click="$router.push('/category')"/>
-      <q-btn flat color="accent" label="신상품" @click="$router.push('/new')"/>
-      <q-btn flat color="accent" label="베스트" @click="$router.push('/best')"/>
+    <q-toolbar class="row q-pt-lg">
+      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold cate" style="width: 120px" flat color="accent" label="카테고리" icon="mdi-menu" @click="$router.push('/category')"/>
+      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold sinsang" style="width: 71px" flat color="accent" label="신상품" @click="$router.push('/new')"/>
+      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold best" style="width: 71px" flat color="accent" label="베스트" @click="$router.push('/best')"/>
       <q-space/>
-      <q-btn flat color="primary" icon="mdi-heart-outline" @click="$router.push('/favorite')"/>
-      <q-btn flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
-      <q-btn flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
+      <q-btn class="col-xs-1 col-md-1 col-lg-1 h" style="width: 40px" flat color="primary" icon="mdi-heart-outline" @click="$router.push('/favorite')"/>
+      <q-btn class="col-xs-1 col-md-1 col-lg-1 c" style="width: 40px" flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
+      <q-btn class="col-xs-1 col-md-1 col-lg-1 a" style="width: 40px" flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
     </q-toolbar>
 
     <q-dialog v-model="logout" persistent>
@@ -96,6 +96,12 @@
 .q-virtual-scroll__content
    .q-item
      color: #7f7f7f
+
+.h, .c
+  padding-right: 55px
+  @media (max-width: $breakpoint-xs)
+    padding-right: 0px
+
 </style>
 
 <script>

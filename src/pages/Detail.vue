@@ -13,7 +13,7 @@
             <div v-if="item.salePrice !== 0" class="text-h3 text-primary q-pt-sm">{{Math.round((item.salePrice - item.price)/item.salePrice * 100 ) }}%</div>
           </div>
           <div class="row">
-            <div class="col-xs-9 col-sm-9 col-md-3 q-pt-md">상품을 선택하세요</div>
+            <div class="col-xs-9 col-sm-3 col-md-3 q-pt-md">상품을 선택하세요</div>
             <div class="col-9">
               <q-select v-model="product" :options="item.opts" label="상품 선택" @input="onAdd"/>
             </div>
@@ -34,7 +34,7 @@
               <div class="q-pr-sm">{{ 0 + item.price*product.count }} 원</div>
             </div>
           </div>
-          <div class="row q-pt-xl"><q-space/>
+          <div class="row q-pt-xl total"><q-space/>
             <div class="text-h6 q-pt-md">총 상품금액</div>
             <div class="text-h3 q-pt-xs q-pl-sm">{{ total }} 원</div>
           </div>
@@ -124,11 +124,13 @@
 <style lang="sass">
 .product-box
   outline: 1px solid #a6a6a6
+  @media (max-width: $breakpoint-xs)
+    width: 330px
 
 .detailCenter
   @media (max-width: $breakpoint-md)
     text-align: center
-    padding-left: 220px
+    padding-left: 150px
   @media (max-width: $breakpoint-sm)
     text-align: center
     padding-left: 100px
@@ -144,9 +146,17 @@
       padding-left: 0px
 
 .detailImg
-  @media (max-width: $breakpoint-xs)
-    width: 410px
+  @media (max-width: $breakpoint-md)
+    padding-left: 50px
+    width: 650px
+    height: 450px
+  @media (max-width: $breakpoint-sm)
+    padding-right: 40px
+    width: 500px
     height: 300px
+  @media (max-width: $breakpoint-xs)
+    width: 350px
+    height: 250px
 
 .detailName
   width: 450px
@@ -158,7 +168,11 @@
     padding-left: 0px
   @media (max-width: $breakpoint-xs)
     width: 447px
-    padding-left: 0px
+    padding-right: 115px
+
+.total
+  @media (max-width: $breakpoint-xs)
+    padding-right: 100px
 </style>
 
 <script>
