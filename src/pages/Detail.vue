@@ -1,10 +1,12 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="row detailCenter">
-        <div style="height=550px; width: 500px"><img class="detailImg" :src="item.img" width="100%"></div>
-        <div class="d-content text-left">
-          <h2 class="detailName">{{ item.name }}</h2>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+          <img style="width: 100%;" :src="item.img">
+        </div>
+        <div class="text-left col-xs-12 col-sm-12 col-md-12 col-lg-6 q-pl-sm q-pt-lg">
+          <h2>{{ item.name }}</h2>
           <div class="q-py-sm text-secondary detailName">{{ item.exp }}</div>
           <div class="row q-py-xl" style="width: 100%">
             <div v-if="item.salePrice !== 0" class="text-h4 text-secondary q-pt-md q-pr-xs">{{ item.salePrice }}원</div>
@@ -38,10 +40,10 @@
             <div class="text-h3 q-pt-xs q-pl-sm">{{ total }} 원</div>
           </div>
           <div class="row q-pt-xl" style="width: 100%"><q-space/>
-            <q-btn v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
-            <q-btn v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
-            <q-btn class="text-primary" flat icon="mdi-cart-outline" size="xl" @click="confirm = true"/>
-            <q-btn class="productbuy" push color="primary" label="구매하기" style="font-size: 20px" @click="buy = true"/>
+            <q-btn class="col-xs-2 col-sm-1 col-md-1 col-lg-2" v-if="isHeart" flat icon="mdi-heart" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
+            <q-btn class="col-xs-2 col-sm-1 col-md-1 col-lg-2" v-else flat icon="mdi-heart-outline" color="primary" size="xl" @click="$store.commit('inHeart', item.id)" />
+            <q-btn class="col-xs-2 col-sm-1 col-md-1 col-lg-2 text-primary" flat icon="mdi-cart-outline" size="xl" @click="confirm = true"/>
+            <q-btn class="col-xs-6 col-sm-4 col-md-4 col-lg-5 productbuy" push color="primary" label="구매하기" style="font-size: 20px" @click="buy = true"/>
           </div>
 
           <q-dialog v-model="confirm" persistent>
@@ -52,7 +54,6 @@
               </q-card-section>
               <q-card-actions align="right" class="q-pr-md">
                 <q-btn flat label="아니요" color="primary" v-close-popup />
-                <!-- <q-btn flat label="네, 담을래요!" color="primary" @click="$store.commit('inCart', item)" v-close-popup /> -->
                 <q-btn flat label="네, 담을래요!" color="primary" v-close-popup />
               </q-card-actions>
             </q-card>
@@ -73,48 +74,6 @@
 
         </div>
       </div>
-      <!-- <div>
-        <div class="text-h6 text-secondary q-pt-xl">같이 본 상품</div>
-        <div class="row">
-          <div><q-btn class="q-pt-xl" flat color="secondary" icon="mdi-chevron-left" size="xl"/></div>
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-
-          <div class="q-pt-md">
-            <img src="image/1.png" style="width: 160px; height: 100px;">
-            <div>국산 하이큐 네임펜</div>
-            <div class="text-secondary">12000원</div>
-          </div>
-          <div><q-btn class="q-pt-xl" flat color="secondary" icon="mdi-chevron-right" size="xl"/></div>
-        </div>
-      </div> -->
       <DetailBottom/>
     </div>
   </div>
@@ -123,39 +82,6 @@
 <style lang="sass">
 .product-box
   outline: 1px solid #a6a6a6
-
-.d-content
-  padding-left: 50px
-  @media (max-width: $breakpoint-md)
-    padding-left: 0px
-    width: 100%
-
-.detailImg
-  @media (max-width: $breakpoint-md)
-    width: 100%
-    height: 100%
-
-.detailName
-  @media (max-width: $breakpoint-md)
-    padding-top: 20px
-  @media (max-width: $breakpoint-sm)
-    width: 100%
-    padding-left: 0px
-
-.sale
-  padding-left: 85px
-  @media (max-width: $breakpoint-md)
-    padding-left: 200px
-  @media (max-width: $breakpoint-sm)
-    padding-left: 120px
-  @media (max-width: $breakpoint-xs)
-    padding-left: 0px
-
-//////////////////////////////////////
-.productbuy
-  width: 300px
-  @media (max-width: $breakpoint-xs)
-    width: 120px
 </style>
 
 <script>

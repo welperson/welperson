@@ -2,14 +2,14 @@
   <div class="content">
     <div class="q-pa-lg">
       <div class="text-h1 text-primary">장바구니</div>
-      <div class="row q-px-xl q-pt-xl">
+      <div class="row q-px-lg q-pt-xl">
         <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
         <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
       </div>
       <hr>
 
       <div v-for="cartItem in cartItems" :key="cartItem.id">
-        <div class="row q-px-xl q-py-sm">
+        <div class="row q-px-lg q-py-sm">
           <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck" style="padding-top: 30px"/></div>
           <div class="col-xs-10 col-sm-3 col-md-5 col-lg-2"><img class="cartImg" :src="cartItem.img" style="width: 150px; height: 100px;"></div>
           <div class="col-xs-10 col-sm-8 col-md-5 col-lg-5 namebox text-secondary q-pl-lg" style="padding-top: 20px;">
@@ -17,7 +17,7 @@
             <div>{{ cartItem.exp }}</div>
             <div class="q-pt-sm"> {{ cartItem.opts[0]}}</div>
           </div>
-          <div class="col-sm-6 col-md-7 col-lg-2" style="padding-top: 40px;">
+          <div class="col-sm-6 col-md-7 col-lg-2 q-pl-xl" style="padding-top: 40px;">
             <q-btn size="xs" label="-" v-if="cartItem.count > 0" @click="cartItem.count--" />
             <q-btn size="xs" label="-" v-else />
             <input style="width: 30px" type="text" v-model="cartItem.count">
@@ -36,7 +36,7 @@
       {{ getItem(cartItem.id).price }}
       {{ cartItem.count }}
     </div> -->
-      <div class="row q-px-xl">
+      <div class="row q-px-lg">
         <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
         <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
       </div>
@@ -46,7 +46,7 @@
           <div class="text-h6 q-pt-lg">총 상품금액</div>
           <div class="text-h2 q-pt-sm q-px-sm">{{ total }} 원</div>
         </div>
-        <div class="row q-pt-lg"><q-space/>
+        <div class="row q-py-lg"><q-space/>
           <q-btn push color="primary" label="구매하기" style="width: 200px; font-size: 20px" @click="buy = true"/>
         </div>
       </div>
@@ -73,8 +73,6 @@ export default {
   data () {
     return {
       cartCheck: [],
-      // cartItems: this.$store.state.items.filter(item => item.cart === true)
-      // cartItems: this.$store.state.items.filter(item => this.$store.state.carts.includes(item.id))
       cartItems: this.$store.state.carts.map(c => {
         const item = this.$store.state.items.find(item => item.id === c.id)
         return { ...item, ...c }

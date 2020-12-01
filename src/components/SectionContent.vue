@@ -6,7 +6,7 @@
         <span class="text-h4" style="color: #a6a6a6">이라면 필요할 걸 ?</span>
       </div>
       <div class="row items-start q-col-gutter-md">
-        <div class="column col-xs-12 col-sm-6 col-md-4 proDetail" v-for="item in teamItem" :key="item.id">
+        <div class="proDetail column col-xs-12 col-sm-6 col-md-4" v-for="item in teamItem" :key="item.id">
           <Product :item="item" />
         </div>
       </div>
@@ -19,7 +19,7 @@
         <span class="text-h4" style="color: #a6a6a6">은 처음이지 ?</span>
       </div>
       <div class="row items-start q-col-gutter-md" >
-        <div class="column col-xs-12 col-sm-6 col-md-4 proDetail" v-for="item in fitItem" :key="item.id">
+        <div class="proDetail column col-xs-12 col-sm-6 col-md-4" v-for="item in fitItem" :key="item.id">
           <Product :item="item"/>
         </div>
       </div>
@@ -29,9 +29,7 @@
 
 <style lang="sass">
 .proDetail
-  padding: 50px
-  @media (max-width: $breakpoint-xs)
-    padding: 10px 0px 0px 0px
+  padding: 40px 10px 50px 30px
 </style>
 
 <script>
@@ -48,11 +46,6 @@ export default {
       fitItem: this.$store.state.items.filter(item => item.fit)
     }
   }
-  // computed: {
-  //   items () {
-  //     return this.$store.state.items
-  //   }
-  // }
 }
 
 </script>

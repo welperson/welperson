@@ -1,24 +1,14 @@
 <template>
-  <!-- 상품설명 -->
   <div>
     <div class="q-py-lg" style="text-align: center">
-      <!-- <div class="text-h1">상품설명</div> -->
-      <div><img :src="item.img" class="desImg"></div>
+      <div>
+        <img :src="item.img" style="width: 100%; height: auto">
+      </div>
       <div class="text-h1 q-py-xl" style="text-align: center">{{ item.name }}</div>
       <div class="text-h4 q-py-xl">{{ item.exp }}</div>
     </div>
   </div>
 </template>
-
-<style lang="sass">
-.desImg
-  width: 890px
-  height: 820px
-  .detailImg
-  @media (max-width: $breakpoint-md)
-    width: 100%
-    height: 100%
-</style>
 
 <script>
 export default {

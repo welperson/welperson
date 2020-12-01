@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="text-h1 text-primary">베스트</div>
+      <div class="text-h1 text-primary q-py-md">베스트</div>
       <div class="row items-start q-col-gutter-md">
-        <div class="column col-xs-12 col-sm-6 col-md-4 q-pa-xl" v-for="item in bestItem" :key="item.id">
+        <div class="proDetail column col-xs-12 col-sm-6 col-md-4 q-py-lg" v-for="item in bestItem" :key="item.id">
           <Product :item="item" />
         </div>
       </div>
@@ -15,7 +15,7 @@
 import Product from 'components/Product'
 
 export default {
-  name: 'NewProduct',
+  name: 'BestProduct',
   components: {
     Product
   },

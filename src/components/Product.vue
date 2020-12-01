@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <div>
-      <q-btn flat round dense @click="$router.push(`/detail/${item.id}`)"><img class="proImg" :src="item.img" style="height: 200px; width: 300px"></q-btn>
+  <div class="q-mt-md">
+    <div class="container">
+      <router-link :to="`/detail/${item.id}`">
+        <img class="proImg" :src="item.img">
+      </router-link>
     </div>
     <div>
       <div class="row q-pt-sm">
-        <div>
-          <div style="width: 225px">{{ item.name }}</div>
+        <div style="width: 60%">
+          <div>{{ item.name }}</div>
           <div>
             <span v-if="item.salePrice > 0" style="color: #a6a6a6">{{ item.salePrice }}원 </span>
             <span v-else></span>
@@ -23,6 +25,21 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.container
+  position: relative
+  height: 220px
+  overflow: hidden
+
+.proImg
+  position: absolute
+  width: 100%
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+</style>
 
 <script>
 export default {

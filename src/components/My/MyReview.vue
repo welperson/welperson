@@ -28,12 +28,6 @@
   </div>
 </template>
 
-<style lang="sass">
-// .reviewImg
-//   width: 130px
-//   height: 80px
-</style>
-
 <script>
 export default {
   name: 'MyReview',
