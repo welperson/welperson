@@ -12,7 +12,7 @@
         <div class="row q-px-lg q-py-sm items-center">
           <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck"/></div>
           <div class="col-xs-10 col-sm-3 col-md-4 col-lg-2">
-            <img :src="cartItem.img" style="width: 100%;">
+            <img :src="cartItem.img" style="width: 100%; height: auto;">
           </div>
           <div class="col-xs-12 col-sm-8 col-md-5 col-lg-5 text-secondary q-pl-lg">
             <div class="text-h5" style="width: 100%">{{ cartItem.name }}</div>
