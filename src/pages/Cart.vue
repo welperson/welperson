@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="text-h1 text-primary">장바구니</div>
+      <div class="text-h1 text-primary q-py-md">장바구니</div>
       <div class="row q-px-lg q-pt-xl">
         <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
         <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
@@ -9,23 +9,25 @@
       <hr>
 
       <div v-for="cartItem in cartItems" :key="cartItem.id">
-        <div class="row q-px-lg q-py-sm">
-          <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck" style="padding-top: 30px"/></div>
-          <div class="col-xs-10 col-sm-3 col-md-5 col-lg-2"><img class="cartImg" :src="cartItem.img" style="width: 150px; height: 100px;"></div>
-          <div class="col-xs-10 col-sm-8 col-md-5 col-lg-5 namebox text-secondary q-pl-lg" style="padding-top: 20px;">
-            <div class="text-h5">{{ cartItem.name }}</div>
-            <div>{{ cartItem.exp }}</div>
+        <div class="row q-px-lg q-py-sm items-center">
+          <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck"/></div>
+          <div class="col-xs-10 col-sm-3 col-md-4 col-lg-2">
+            <img :src="cartItem.img" style="width: 100%;">
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-5 col-lg-5 text-secondary q-pl-lg">
+            <div class="text-h5" style="width: 100%">{{ cartItem.name }}</div>
+            <div style="width: 100%">{{ cartItem.exp }}</div>
             <div class="q-pt-sm"> {{ cartItem.opts[0]}}</div>
           </div>
-          <div class="col-sm-6 col-md-7 col-lg-2 q-pl-xl" style="padding-top: 40px;">
+          <div class="col-sm-6 col-md-7 col-lg-2 q-pl-xl">
             <q-btn size="xs" label="-" v-if="cartItem.count > 0" @click="cartItem.count--" />
             <q-btn size="xs" label="-" v-else />
             <input style="width: 30px" type="text" v-model="cartItem.count">
             <q-btn size="xs" label="+" @click="cartItem.count++" />
           </div>
           <div class="row q-pl-xl">
-            <div style="padding-top: 40px; width: 100px">{{ 0 + cartItem.price*cartItem.count }} 원</div>
-            <div style="padding-top: 33px;"><q-btn flat label="X" @click="onRemove(cartItem)"/></div>
+            <div class="q-pt-sm" style="width: 100px">{{ 0 + cartItem.price*cartItem.count }} 원</div>
+            <div><q-btn flat label="X" @click="onRemove(cartItem)"/></div>
           </div>
         </div>
         <hr>

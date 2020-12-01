@@ -4,6 +4,7 @@ export default function () {
     check: 1,
     point: '1,000,000',
     accum: 39,
+
     items: [
       {
         id: '1',

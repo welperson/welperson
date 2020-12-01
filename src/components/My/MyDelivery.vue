@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>배송지 관리</h4>
+    <h4 class="q-pb-lg">배송지 관리</h4>
     <div class="delivery q-pt-md q-pb-xl">
       <div class="row text-h6 q-py-sm text-center">
         <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" >선택</div>
@@ -10,7 +10,7 @@
         <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" >수정</div>
       </div>
 
-      <div class="row q-pt-lg text-center" v-for="add in adds" :key="add.id">
+      <div class="row q-pt-lg text-center items-center" v-for="add in adds" :key="add.id">
         <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
           <q-radio keep-color color="primary" :val="add.id" v-model="select" />
         </div>

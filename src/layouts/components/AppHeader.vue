@@ -24,9 +24,7 @@
       <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold sinsang" style="width: 71px" flat color="accent" label="신상품" @click="$router.push('/new')"/>
       <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold best" style="width: 71px" flat color="accent" label="베스트" @click="$router.push('/best')"/>
       <q-space/>
-      <q-btn class="col-xs-1 col-md-1 col-lg-1 h" style="width: 40px" flat color="primary" icon="mdi-heart-outline" @click="$router.push('/favorite')"/>
-      <q-btn class="col-xs-1 col-md-1 col-lg-1 c" style="width: 40px" flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
-      <q-btn class="col-xs-1 col-md-1 col-lg-1" style="width: 40px" flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
+      <q-btn v-for="menu in menus" :key="menu.id" class="col-xs-1 col-md-1 col-lg-1 ic" style="width: 40px" flat color="primary" :icon="menu.name" @click="$router.push(menu.id)"/>
     </q-toolbar>
 
     <q-dialog v-model="logout" persistent>
@@ -52,7 +50,7 @@
    .q-item
      color: #7f7f7f
 
-.h, .c
+.ic
   padding-right: 55px
   @media (max-width: $breakpoint-xs)
     padding-right: 0px
@@ -72,6 +70,11 @@ export default {
         { id: 'review', name: '상품 후기', icon: 'mdi-border-color' },
         { id: 'question', name: '문의 내역', icon: 'mdi-comment-question-outline' },
         { id: 'manage', name: '개인 정보 관리', icon: 'mdi-account' }
+      ],
+      menus: [
+        { id: '/favorite', name: 'mdi-heart-outline' },
+        { id: '/cart', name: 'mdi-cart-outline' },
+        { id: '/mypage', name: 'mdi-account-outline' }
       ]
     }
   },

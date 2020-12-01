@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>상품 후기</h4>
+    <h4 class="q-pb-lg">상품 후기</h4>
     <div>
       <div class="text-h5 q-py-md" style="text-align: center">내가 작성한 후기</div>
       <div class="row q-py-md">

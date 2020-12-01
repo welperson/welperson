@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="text-h1 text-primary">마이페이지</div>
-      <div class="row q-col-gutter-y-md" style="height: 100%; background-color: #d0f0fd">
+    <div class="text-h1 text-primary q-py-md">마이페이지</div>
+      <div class="row q-col-gutter-y-md items-center" style="height: 100%; background-color: #d0f0fd">
         <div class="col col-xs-12 col-md-4">
-          <div class="q-pt-lg"><span class="text-h1 text-bold q-pl-lg">김유니</span><span class="text-h3"> 님</span></div>
+          <div><span class="text-h1 text-bold q-pl-md">김유니</span><span class="text-h3"> 님</span></div>
         </div>
         <div class="col col-xs-12 col-md-4">
           <div class="q-pl-md text-h3 text-bold">잔여 포인트</div>

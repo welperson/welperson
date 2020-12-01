@@ -8,7 +8,7 @@
 <style lang="sass">
 .menu
   padding-left: 30px
-  padding-top: 20px
+  padding-top: 40px
   .col
     width: 140px
 

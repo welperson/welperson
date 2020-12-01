@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-center item-start">
-    <div class="col-sm-3 col-md-1 q-pb-md" style="text-align: center" v-for="category in categories" :key="category.id">
+    <div class="col-sm-3 col-md-1 q-py-md" style="text-align: center" v-for="category in categories" :key="category.id">
       <div class="q-px-md"><q-btn outline round :icon= "category.icon" color="primary" size="xl" @click="$router.push('/category' + category.id )" /></div>
       <div class="text-primary">{{ category.name }}</div>
     </div>
