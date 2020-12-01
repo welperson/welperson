@@ -1,5 +1,4 @@
 <template>
-  <!-- 상품후기 -->
   <div>
     <div class="q-py-lg" v-for="review in reviews" :key="review.id">
       <div class="row">

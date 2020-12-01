@@ -10,24 +10,13 @@
         <div style="font-size: 25px"><span class="text-h2">20%</span> 포인트 적립</div>
       </div>
       <div class="col-sm-1 col-md-1 col-lg-1 q-pt-md ">
-        <q-icon
-        name="mdi-heart-multiple"
-        color="accent"
-        size="xl"
-        style="top: 10px"/>
+        <q-icon name="mdi-heart-multiple" color="accent" size="xl" style="top: 10px"/>
       </div>
       <div class="col-sm-3 col-md-3 col-lg-2">
-        <q-img
-        src="https://image.flaticon.com/icons/png/512/287/287585.png"
-        />
+        <q-img src="https://image.flaticon.com/icons/png/512/287/287585.png"/>
       </div>
       <div class="col-sm-1 col-md-1 col-lg-1">
-        <q-icon
-        name="mdi-heart-multiple"
-        color="accent"
-        size="xl"
-        style="top: 200px"
-        />
+        <q-icon name="mdi-heart-multiple" color="accent" size="xl" style="top: 200px"/>
       </div>
     </div>
   </div>

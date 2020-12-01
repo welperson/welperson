@@ -22,7 +22,6 @@
         </div>
       </div>
     </div>
-    <!-- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae id eum minus voluptatem nemo! Suscipit sapiente nostrum quasi dignissimos voluptas animi laborum incidunt, odit labore quis delectus hic dolor ex?</h1> -->
   </div>
 </template>
 

@@ -26,7 +26,7 @@
       <q-space/>
       <q-btn class="col-xs-1 col-md-1 col-lg-1 h" style="width: 40px" flat color="primary" icon="mdi-heart-outline" @click="$router.push('/favorite')"/>
       <q-btn class="col-xs-1 col-md-1 col-lg-1 c" style="width: 40px" flat color="primary" icon="mdi-cart-outline" @click="$router.push('/cart')"/>
-      <q-btn class="col-xs-1 col-md-1 col-lg-1 a" style="width: 40px" flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
+      <q-btn class="col-xs-1 col-md-1 col-lg-1" style="width: 40px" flat color="primary" icon="mdi-account-outline" @click="$router.push('/mypage')"/>
     </q-toolbar>
 
     <q-dialog v-model="logout" persistent>
