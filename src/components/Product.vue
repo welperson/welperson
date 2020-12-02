@@ -7,7 +7,7 @@
     </div>
     <div>
       <div class="row q-pt-sm">
-        <div style="width: 60%">
+        <div style="width: 67%">
           <div>{{ item.name }}</div>
           <div>
             <span v-if="item.salePrice > 0" style="color: #a6a6a6">{{ item.salePrice }}원 </span>
@@ -18,8 +18,7 @@
         </div>
         <q-space/>
         <div>
-          <q-btn v-if="isHeart" flat icon="mdi-heart" style="color: #ed6665" size="xl" @click="$store.commit('inHeart', item.id)" />
-          <q-btn v-else flat icon="mdi-heart-outline" style="color: #ed6665" size="xl" @click="$store.commit('inHeart', item.id)" />
+          <q-btn flat :icon="isHeart ? 'mdi-heart' : 'mdi-heart-outline'" style="color: #ed6665" size="xl" @click="onHeart(item.id)" />
         </div>
       </div>
     </div>
@@ -43,21 +42,21 @@
 
 <script>
 export default {
-  name: 'SectionProduct',
+  name: 'Product',
   props: ['item'],
   data () {
     return {
 
     }
   },
-  // methods: {
-  //   in (payload) {
-  //     this.$store.commit('inHeart', payload)
-  //   }
-  // },
   computed: {
     isHeart () {
       return this.$store.state.heart.includes(this.item.id)
+    }
+  },
+  methods: {
+    onHeart (id) {
+      return this.$store.commit('inHeart', id)
     }
   }
 }

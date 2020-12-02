@@ -6,7 +6,7 @@
         <span class="text-h4" style="color: #a6a6a6">이라면 필요할 걸 ?</span>
       </div>
       <div class="row items-start q-col-gutter-md">
-        <div class="proDetail column col-xs-12 col-sm-6 col-md-4" v-for="item in teamItem" :key="item.id">
+        <div class="pro-detail column col-xs-12 col-sm-6 col-md-4" v-for="item in teamItem" :key="item.id">
           <Product :item="item" />
         </div>
       </div>
@@ -19,18 +19,13 @@
         <span class="text-h4" style="color: #a6a6a6">은 처음이지 ?</span>
       </div>
       <div class="row items-start q-col-gutter-md" >
-        <div class="proDetail column col-xs-12 col-sm-6 col-md-4" v-for="item in fitItem" :key="item.id">
+        <div class="pro-detail column col-xs-12 col-sm-6 col-md-4" v-for="item in fitItem" :key="item.id">
           <Product :item="item"/>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<style lang="sass">
-.proDetail
-  padding: 40px 10px 50px 30px
-</style>
 
 <script>
 import Product from './Product'
