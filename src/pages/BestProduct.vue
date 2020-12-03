@@ -13,6 +13,7 @@
 
 <script>
 import Product from 'components/Product'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'BestProduct',
@@ -21,8 +22,13 @@ export default {
   },
   data () {
     return {
-      bestItem: this.$store.getters.getCom('best')
+
     }
+  },
+  computed: {
+    ...mapGetters('products', {
+      bestItem: 'bestItems'
+    })
   }
 }
 </script>

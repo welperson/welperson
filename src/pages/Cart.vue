@@ -3,14 +3,13 @@
     <div class="q-pa-lg">
       <div class="text-h1 text-primary q-py-md">장바구니</div>
       <div class="row q-px-lg q-pt-xl">
-        <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
-        <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
+        <q-checkbox size="sm" label="전체선택" v-model="selectAll"/>
+        <q-btn class="btn" flat label="선택삭제" @click="onSelectRemove"/>
       </div>
       <hr>
-
       <div v-for="cartItem in cartItems" :key="cartItem.id">
         <div class="row q-px-lg q-py-sm items-center">
-          <div><q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck"/></div>
+          <q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck"/>
           <div class="col-xs-10 col-sm-3 col-md-4 col-lg-2">
             <img :src="cartItem.img" style="width: 100%; height: auto;">
           </div>
@@ -27,20 +26,14 @@
           </div>
           <div class="row q-pl-xl">
             <div class="q-pt-sm" style="width: 100px">{{ 0 + cartItem.price*cartItem.count }} 원</div>
-            <div><q-btn flat label="X" @click="onRemove(cartItem)"/></div>
+            <q-btn flat label="X" @click="onRemove(cartItem)"/>
           </div>
         </div>
         <hr>
       </div>
-    <!-- <div v-for="cartItem in $store.state.carts" :key="cartItem.id">
-      {{ getItem(cartItem.id).id }}
-      {{ getItem(cartItem.id).name }}
-      {{ getItem(cartItem.id).price }}
-      {{ cartItem.count }}
-    </div> -->
       <div class="row q-px-lg">
-        <div><q-checkbox size="sm" label="전체선택" v-model="selectAll"/></div>
-        <div><q-btn class="btn" flat label="선택삭제" @click="onSelRem"/></div>
+        <q-checkbox size="sm" label="전체선택" v-model="selectAll"/>
+        <q-btn class="btn" flat label="선택삭제" @click="onSelectRemove"/>
       </div>
 
       <div class="q-py-lg">
@@ -75,8 +68,8 @@ export default {
   data () {
     return {
       cartCheck: [],
-      cartItems: this.$store.state.carts.map(c => {
-        const item = this.$store.state.items.find(item => item.id === c.id)
+      cartItems: this.$store.state.carts.items.map(c => {
+        const item = this.$store.state.products.items.find(item => item.id === c.id)
         return { ...item, ...c }
       }),
       buy: false,
@@ -84,9 +77,6 @@ export default {
     }
   },
   computed: {
-    // getItem () {
-    //   return id => this.$store.state.items.find(item => item.id === id)
-    // },
     selectAll: {
       get: function () {
         return this.cartItems ? this.cartCheck.length === this.cartItems.length : false
@@ -114,7 +104,7 @@ export default {
     onRemove (cartItem) {
       this.cartItems = this.cartItems.filter(x => x.id !== cartItem.id)
     },
-    onSelRem () {
+    onSelectRemove () {
       if (this.cartCheck !== null) {
         for (var i = 0; i < this.cartCheck.length; i++) {
           this.cartItems = this.cartItems.filter(x => x.id !== this.cartCheck[i])

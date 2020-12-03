@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <q-tab-panels v-model="t" animated class="bg-primary" style="height: 300px;">
+    <q-tab-panels v-model="t" animated class="bg-primary">
       <q-tab-panel v-for="tab in tabs" :key="tab.name" :name="tab.name">
         <component :is="tab.component" />
       </q-tab-panel>

@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      items: this.$store.state.items
+      items: this.$store.state.products.items
     }
   }
 }

@@ -30,7 +30,7 @@ export default {
   name: 'MyDelivery',
   data () {
     return {
-      adds: this.$store.state.adds,
+      adds: this.$store.state.address.adds,
       select: ''
     }
   }

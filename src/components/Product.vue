@@ -18,7 +18,7 @@
         </div>
         <q-space/>
         <div>
-          <q-btn flat :icon="isHeart ? 'mdi-heart' : 'mdi-heart-outline'" style="color: #ed6665" size="xl" @click="onHeart(item.id)" />
+          <q-btn flat :icon="isHeart ? 'mdi-heart' : 'mdi-heart-outline'" style="color: #ed6665" size="xl" @click="onHeart( item.id )" />
         </div>
       </div>
     </div>
@@ -41,6 +41,8 @@
 </style>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Product',
   props: ['item'],
@@ -51,13 +53,13 @@ export default {
   },
   computed: {
     isHeart () {
-      return this.$store.state.heart.includes(this.item.id)
+      return this.$store.state.hearts.heart.includes(this.item.id)
     }
   },
   methods: {
-    onHeart (id) {
-      return this.$store.commit('inHeart', id)
-    }
+    ...mapMutations('hearts', {
+      onHeart: 'inHeart'
+    })
   }
 }
 </script>

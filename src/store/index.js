@@ -1,17 +1,21 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import state from './state'
-import mutations from './mutations'
-import getters from './getters'
+import address from './modules/address'
+import products from './modules/products'
+import hearts from './modules/hearts'
+import carts from './modules/carts'
 
 Vue.use(Vuex)
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
-    state,
-    mutations,
-    getters,
+    modules: {
+      products: products,
+      address: address,
+      hearts: hearts,
+      carts: carts
+    },
     strict: process.env.DEV
   })
 

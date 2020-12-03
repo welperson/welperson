@@ -13,6 +13,7 @@
 
 <script>
 import Product from 'components/Product'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'NewProduct',
@@ -21,8 +22,13 @@ export default {
   },
   data () {
     return {
-      newItem: this.$store.getters.getCom('new')
+
     }
+  },
+  computed: {
+    ...mapGetters('products', {
+      newItem: 'newItems'
+    })
   }
 }
 </script>

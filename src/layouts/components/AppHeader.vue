@@ -2,7 +2,7 @@
   <q-header class="bg-white text-secondary" >
     <q-toolbar class="q-pb-xl">
       <q-space/>
-      <q-btn-dropdown flat color="primary" label="김유니 님" style="width : 130px">
+      <q-btn-dropdown flat color="primary" label="김유니 님">
       <q-list v-for="item in items" :key="item.id">
         <q-item clickable v-close-popup @click="onRoute(item.id)">
           <q-item-section avatar>
@@ -17,28 +17,33 @@
       <q-btn flat color="secondary" label="로그아웃" @click="logout = true"/>
     </q-toolbar>
     <q-toolbar>
-      <img class="logo absolute-center q-px-xl" style="width: 430px;" src="icons/logo5.png" alt="logo" @click="$router.push('/')">
+      <router-link :to="'/'">
+        <img class="logo absolute-center q-px-xl" src="icons/logo5.png">
+      </router-link>
     </q-toolbar>
     <q-toolbar class="row q-pt-lg">
-      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold cate" style="width: 120px" flat color="accent" label="카테고리" icon="mdi-menu" @click="$router.push('/category')"/>
-      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold sinsang" style="width: 71px" flat color="accent" label="신상품" @click="$router.push('/new')"/>
-      <q-btn class="col-xs-1 col-md-2 col-lg-1 text-bold best" style="width: 71px" flat color="accent" label="베스트" @click="$router.push('/best')"/>
+      <router-link v-for="category in categories" :key="category.id" :to="category.id" class="btn">
+        <q-btn v-if="category.icon" class="col-xs-1 col-md-2 col-lg-1 text-bold btn-big" flat color="accent" :label="category.name" :icon="category.icon" />
+        <q-btn v-else class="col-xs-1 col-md-2 col-lg-1 text-bold btn-small" flat color="accent" :label="category.name" />
+      </router-link>
       <q-space/>
-      <q-btn v-for="menu in menus" :key="menu.id" class="col-xs-1 col-md-1 col-lg-1 ic" style="width: 40px" flat color="primary" :icon="menu.name" @click="$router.push(menu.id)"/>
+      <router-link v-for="menu in menus" :key="menu.id" :to="menu.id" class="btn">
+        <q-btn class="col-xs-1 col-md-1 col-lg-1 btn-icon" flat color="primary" :icon="menu.name"/>
+      </router-link>
     </q-toolbar>
 
     <q-dialog v-model="logout" persistent>
-            <q-card style="width: 400px">
-              <q-card-section class="row items-center">
-                <q-avatar class="q-ml-sm" icon="mdi-emoticon-sad" color="primary" text-color="white" />
-                <span class="q-ml-md">정말로 나가시겠습니까 ? </span>
-              </q-card-section>
-              <q-card-actions align="right" class="q-pr-md">
-                <q-btn flat label="아니요 ㅠㅠ" color="primary" v-close-popup />
-                <q-btn flat label="네, 나갈래요!" color="primary" v-close-popup />
-              </q-card-actions>
-            </q-card>
-          </q-dialog>
+      <q-card style="width: 400px">
+        <q-card-section class="row items-center">
+          <q-avatar class="q-ml-sm" icon="mdi-emoticon-sad" color="primary" text-color="white" />
+          <span class="q-ml-md">정말로 나가시겠습니까 ? </span>
+        </q-card-section>
+        <q-card-actions align="right" class="q-pr-md">
+          <q-btn flat label="아니요 ㅠㅠ" color="primary" v-close-popup />
+          <q-btn flat label="네, 나갈래요!" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-header>
 </template>
 
@@ -49,11 +54,19 @@
 .q-virtual-scroll__content
    .q-item
      color: #7f7f7f
+.q-btn-dropdown
+  width: 130px
 
-.ic
-  padding-right: 55px
-  @media (max-width: $breakpoint-xs)
-    padding-right: 0px
+.logo
+  width: 430px
+.btn
+  text-decoration: none
+.btn-big
+  width: 120px
+.btn-small
+  width: 71px
+.btn-icon
+  width: 40px
 
 </style>
 
@@ -75,6 +88,11 @@ export default {
         { id: '/favorite', name: 'mdi-heart-outline' },
         { id: '/cart', name: 'mdi-cart-outline' },
         { id: '/mypage', name: 'mdi-account-outline' }
+      ],
+      categories: [
+        { id: '/category', name: '카테고리', icon: 'mdi-menu' },
+        { id: '/new', name: '신상품' },
+        { id: '/best', name: '베스트' }
       ]
     }
   },

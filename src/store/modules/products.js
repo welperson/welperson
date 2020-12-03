@@ -1,10 +1,8 @@
-export default function () {
-  return {
-    count: 10,
-    check: 1,
+export default {
+  namespaced: true,
+  state: {
     point: '1,000,000',
     accum: 39,
-
     items: [
       {
         id: '1',
@@ -253,38 +251,35 @@ export default function () {
         team: true,
         fit: true
       }
-    ],
-    carts: [
-      { id: '1', count: 1 },
-      { id: '2', count: 1 },
-      { id: '3', count: 1 },
-      { id: '6', count: 1 },
-      { id: '9', count: 1 },
-      { id: '14', count: 1 },
-      { id: '18', count: 1 }
-    ],
-
-    heart: ['1', '3', '5', '6', '10', '11', '12', '15', '18'],
-
-    adds: [
-      {
-        id: 'add1',
-        address: '서울시 관악구 신림동 1839-5 우리동네아파트 102동 418호',
-        person: '김장미',
-        num: '010-1111-2222'
-      },
-      {
-        id: 'add2',
-        address: '서울시 관악구 봉천동 551-3 104호',
-        person: '박봉천동',
-        num: '010-1234-5678'
-      },
-      {
-        id: 'add3',
-        address: '강원도 춘천시 퇴계3차 주공아파트 4동 102호',
-        person: '최춘천',
-        num: '010-7777-8888'
-      }
     ]
+  },
+  getters: {
+    newItems (state, getters) {
+      return getters.getCom('new')
+    },
+    bestItems (state, getters) {
+      return getters.getCom('best')
+    },
+    techItems (state, getters) {
+      return getters.getCom('tech')
+    },
+    fashionItems (state, getters) {
+      return getters.getCom('fashion')
+    },
+    beautyItems (state, getters) {
+      return getters.getCom('beauty')
+    },
+    foodItems (state, getters) {
+      return getters.getCom('food')
+    },
+    officeItems (state, getters) {
+      return getters.getCom('office')
+    },
+    homeItems (state, getters) {
+      return getters.getCom('home')
+    },
+    getCom: (state) => (type) => {
+      return state.items.filter(item => item.types.includes(type))
+    }
   }
 }

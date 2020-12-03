@@ -37,8 +37,8 @@ export default {
   },
   data () {
     return {
-      teamItem: this.$store.state.items.filter(item => item.team),
-      fitItem: this.$store.state.items.filter(item => item.fit)
+      teamItem: this.$store.state.products.items.filter(item => item.team),
+      fitItem: this.$store.state.products.items.filter(item => item.fit)
     }
   }
 }

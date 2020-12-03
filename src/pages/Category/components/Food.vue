@@ -11,6 +11,7 @@
 
 <script>
 import Product from 'components/Product'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'All',
@@ -19,9 +20,13 @@ export default {
   },
   data () {
     return {
-      // items: this.$store.state.items.filter(item => item.types.includes('food'))
-      items: this.$store.getters.getCom('food')
+
     }
+  },
+  computed: {
+    ...mapGetters('products', {
+      items: 'foodItems'
+    })
   }
 }
 </script>

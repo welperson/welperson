@@ -15,7 +15,7 @@ export default {
   name: 'Description',
   data () {
     return {
-      item: this.$store.state.items.find(item => item.id === this.$route.params.id)
+      item: this.$store.state.products.items.find(item => item.id === this.$route.params.id)
     }
   }
 }

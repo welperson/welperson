@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      heartItems: this.$store.state.items.filter(item => this.$store.state.heart.includes(item.id))
+      heartItems: this.$store.state.products.items.filter(item => this.$store.state.hearts.heart.includes(item.id))
       // heartItems: this.$sotre.state.hearts.map(h => {
       //   const item = this.$store.state.items.find(item => item.id === h.id)
       //   return { ...item, ...h }
