@@ -8,7 +8,7 @@
           <q-icon v-if="review.title === '만족해요'" class="q-pa-xs text-primary" name="mdi-emoticon-happy-outline" size="xl"/>
           <q-icon v-else class="q-pa-xs text-secondary" name="mdi-emoticon-cry-outline" size="xl"/>
         </div>
-        <div class="q-pl-md q-pt-md" style="font-size: 20px">{{ review.date }}</div>
+        <div class="q-pl-md q-pt-md review__date">{{ review.date }}</div>
       </div>
       <div class="q-pt-md">
         <span>{{ review.text }}</span>
@@ -16,6 +16,11 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.review__date
+  font-size: 20px
+</style>
 
 <script>
 export default {

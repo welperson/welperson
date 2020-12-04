@@ -2,27 +2,14 @@
   <div>
     <h4 class="q-pb-lg">상품 후기</h4>
     <div>
-      <div class="text-h5 q-py-md" style="text-align: center">내가 작성한 후기</div>
-      <div class="row q-py-md">
-        <div class="col-sm-4 col-md-3 q-pl-lg"><img class="reviewImg" src="image/2.png" style="width: 130px; height: 80px;"></div>
-        <div class="col-xs-11 col-sm-8 col-md-7 q-pt-xs">
-          <div class="text-h6">모던오피스 고급 스틸 연필꽂이</div>
-          <div class="q-pt-sm">
-            회사에서 너무 잘 쓰고 있습니다. 다른 직원분들한테도 추천해드리고 있어요. 완전 최고입니다 !!
-          </div>
+      <h5 class="q-py-sm text-center">내가 작성한 후기</h5>
+      <div v-for="item in reviewItems" :key="item.id" class="row q-pt-md items-center">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img :src="item.img" style="width: 100%; height: auto;"></div>
+        <div class="col-xs-9 col-sm-7 col-md-7 col-lg-8 q-px-lg">
+          <h6>{{ item.name }}</h6>
+          <div class="q-pt-sm">{{ item.text }}</div>
         </div>
-        <div class="col-md-1">2020.10.08</div>
-      </div>
-
-      <div class="row q-py-md">
-          <div class="col-sm-4 col-md-3 q-pl-lg"><img src="image/3.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-xs-11 col-sm-8 col-md-7 q-pt-xs">
-            <div class="text-h6">25절 A5 밴드 양장</div>
-            <div class="q-pt-sm">
-              완전 완전 추천 !!
-            </div>
-          </div>
-        <div class="col-md-1">2020.11.08</div>
+        <h6 class="col-sm-1 col-md-1 col-lg-1 text-primary">{{ item.date }}</h6>
       </div>
     </div>
   </div>
@@ -33,7 +20,10 @@ export default {
   name: 'MyReview',
   data () {
     return {
-
+      reviewItems: this.$store.state.reviews.items.map(r => {
+        const item = this.$store.state.products.items.find(item => item.id === r.id)
+        return { ...item, ...r }
+      })
     }
   }
 }

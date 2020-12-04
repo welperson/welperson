@@ -3,42 +3,34 @@
     <div class="q-pa-lg">
       <div class="q-pb-xl">
         <span class="text-h3 text-primary">IT 직군 </span>
-        <span class="text-h4" style="color: #a6a6a6">이라면 필요할 걸 ?</span>
+        <span class="text-h4 text-dark">이라면 필요할 걸 ?</span>
       </div>
-      <div class="row items-start q-col-gutter-md">
-        <div class="pro-detail column col-xs-12 col-sm-6 col-md-4" v-for="item in teamItem" :key="item.id">
-          <Product :item="item" />
-        </div>
-      </div>
+      <Products :items="teamItems"/>
     </div>
 
     <div class="q-pa-lg">
       <div class="q-pt-xl">
-        <span class="text-h4" style="color: #a6a6a6">어서 와~ </span>
+        <span class="text-h4 text-dark">어서 와~ </span>
         <span class="text-h3 text-primary">맞춤 상품 </span>
-        <span class="text-h4" style="color: #a6a6a6">은 처음이지 ?</span>
+        <span class="text-h4 text-dark">은 처음이지 ?</span>
       </div>
-      <div class="row items-start q-col-gutter-md" >
-        <div class="pro-detail column col-xs-12 col-sm-6 col-md-4" v-for="item in fitItem" :key="item.id">
-          <Product :item="item"/>
-        </div>
-      </div>
+      <Products :items="fitItems"/>
     </div>
   </div>
 </template>
 
 <script>
-import Product from './Product'
+import Products from './Products'
 
 export default {
   name: 'SectionContent',
   components: {
-    Product
+    Products
   },
   data () {
     return {
-      teamItem: this.$store.state.products.items.filter(item => item.team),
-      fitItem: this.$store.state.products.items.filter(item => item.fit)
+      teamItems: this.$store.state.products.items.filter(item => item.team),
+      fitItems: this.$store.state.products.items.filter(item => item.fit)
     }
   }
 }

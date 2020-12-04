@@ -1,13 +1,13 @@
 <template>
   <div class="banner">
-    <q-tab-panels v-model="t" animated class="bg-primary">
+    <q-tab-panels v-model="tab_list" animated class="bg-primary">
       <q-tab-panel v-for="tab in tabs" :key="tab.name" :name="tab.name">
         <component :is="tab.component" />
       </q-tab-panel>
     </q-tab-panels>
 
     <div>
-      <q-tabs v-model="t" class="text-secondary">
+      <q-tabs v-model="tab_list" class="text-secondary">
         <q-tab v-for="tab in tabs" :key="tab.name" icon="mdi-circle" :name="tab.name" />
       </q-tabs>
 
@@ -24,7 +24,7 @@ export default {
   name: 'Banners',
   data () {
     return {
-      t: 'b1',
+      tab_list: 'b1',
       tabs: [
         { name: 'b1', component: banner1 },
         { name: 'b2', component: banner2 },

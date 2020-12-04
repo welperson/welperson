@@ -2,41 +2,38 @@
   <div>
     <h4 class="q-pb-lg">주문 내역</h4>
     <div>
-      <div class="q-pt-md q-pb-xl">
+      <div v-for="item in orderItems" :key="item.id" class="q-pt-md q-pb-xl">
         <div class="row justify-between">
-          <span class="text-bold text-h5">2019.08.27</span>
+          <h5 class="text-bold">{{ item.date }}</h5>
           <q-btn class="text-primary" flat label="주문상세보기"><q-icon right name="mdi-chevron-right"/></q-btn>
         </div>
         <div class="row items-center">
-          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/2.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-py-md">모던오피스 고급 스틸 연필꽂이</div>
-        </div>
-        <div class="row items-center">
-          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/1.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-py-md">국산 하이큐 네임펜</div>
-        </div>
-      </div>
-
-      <div class="q-pt-md">
-        <div class="row justify-between">
-          <span class="text-bold text-h5">2020.10.08</span>
-          <q-btn class="text-primary" flat label="주문상세보기"><q-icon right name="mdi-chevron-right"/></q-btn>
-        </div>
-        <div class="row items-center">
-          <div class="col-xs-8 col-sm-4 col-md-3"><img src="image/3.png" style="width: 130px; height: 80px;"></div>
-          <div class="col-md-7 q-py-md">25절 A5 밴드 양장</div>
+          <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3"><img :src="item.img" class="myorder__img"></div>
+          <div class="col-xs-7 q-pl-lg">
+            <div>{{ item.name }}</div>
+            <div>{{ item.opt }}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
+<style lang="sass">
+.myorder__img
+  width: 100%
+  height: auto
+</style>
+
 <script>
 export default {
   name: 'MyOrder',
   data () {
     return {
-
+      orderItems: this.$store.state.orders.items.map(o => {
+        const item = this.$store.state.products.items.find(item => item.id === o.id)
+        return { ...item, ...o }
+      })
     }
   }
 }

@@ -19,8 +19,7 @@ export default {
   },
   data () {
     return {
-      confirm: false,
-      buy: false
+
     }
   }
 }

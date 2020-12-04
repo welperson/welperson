@@ -13,9 +13,6 @@
         </span>
       </div>
       <q-space></q-space>
-      <div class="row no-wrap inline items-center">
-        <img class="logo q-mr-sm" src="icons/logo2.png" alt="logo">
-      </div>
     </q-toolbar>
   </q-footer>
 </template>

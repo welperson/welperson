@@ -18,7 +18,7 @@
     </q-toolbar>
     <q-toolbar>
       <router-link :to="'/'">
-        <img class="logo absolute-center q-px-xl" src="icons/logo5.png">
+        <img class="logo absolute-center q-px-xl" src="icons/logo.png">
       </router-link>
     </q-toolbar>
     <q-toolbar class="row q-pt-lg">
@@ -87,7 +87,7 @@ export default {
       menus: [
         { id: '/favorite', name: 'mdi-heart-outline' },
         { id: '/cart', name: 'mdi-cart-outline' },
-        { id: '/mypage', name: 'mdi-account-outline' }
+        { id: '/mypage?tab=history', name: 'mdi-account-outline' }
       ],
       categories: [
         { id: '/category', name: '카테고리', icon: 'mdi-menu' },

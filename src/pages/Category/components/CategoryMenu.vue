@@ -1,11 +1,21 @@
 <template>
   <div class="row justify-center item-start">
-    <div class="col-sm-3 col-md-1 q-py-md" style="text-align: center" v-for="category in categories" :key="category.id">
-      <div class="q-px-md"><q-btn outline round :icon= "category.icon" color="primary" size="xl" @click="$router.push('/category' + category.id )" /></div>
+    <div class="col-sm-3 col-md-1 q-py-md category__menu" v-for="category in categories" :key="category.id">
+      <router-link :to="'/category' + category.id" class="category__link">
+        <q-btn outline round :icon= "category.icon" color="primary" size="xl" />
+      </router-link>
       <div class="text-primary">{{ category.name }}</div>
     </div>
   </div>
 </template>
+
+<style lang="sass">
+.category__menu
+  text-align: center
+
+.category__link
+  text-decoration: none
+</style>
 
 <script>
 export default {

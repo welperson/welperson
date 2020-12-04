@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="text-h1 text-primary q-py-md">장바구니</div>
+      <h1 class="text-primary q-py-md">장바구니</h1>
       <div class="row q-px-lg q-pt-xl">
         <q-checkbox size="sm" label="전체선택" v-model="selectAll"/>
         <q-btn class="btn" flat label="선택삭제" @click="onSelectRemove"/>
@@ -10,23 +10,20 @@
       <div v-for="cartItem in cartItems" :key="cartItem.id">
         <div class="row q-px-lg q-py-sm items-center">
           <q-checkbox size="sm" :val="cartItem.id" v-model="cartCheck"/>
-          <div class="col-xs-10 col-sm-3 col-md-4 col-lg-2">
-            <img :src="cartItem.img" style="width: 100%; height: auto;">
+          <div class="col-xs-10 col-sm-10 col-md-2 col-lg-2">
+            <img :src="cartItem.img" class="cart__img">
           </div>
-          <div class="col-xs-12 col-sm-8 col-md-5 col-lg-5 text-secondary q-pl-lg">
-            <div class="text-h5" style="width: 100%">{{ cartItem.name }}</div>
-            <div style="width: 100%">{{ cartItem.exp }}</div>
-            <div class="q-pt-sm"> {{ cartItem.opts[0]}}</div>
+          <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6 text-secondary q-pl-lg cart__text">
+            <h5>{{ cartItem.name }}</h5>
+            <div>{{ cartItem.exp }}</div>
+            <div class="q-pt-sm"> {{ cartItem.opt }}</div>
           </div>
-          <div class="col-sm-6 col-md-7 col-lg-2 q-pl-xl">
-            <q-btn size="xs" label="-" v-if="cartItem.count > 0" @click="cartItem.count--" />
-            <q-btn size="xs" label="-" v-else />
-            <input style="width: 30px" type="text" v-model="cartItem.count">
-            <q-btn size="xs" label="+" @click="cartItem.count++" />
-          </div>
-          <div class="row q-pl-xl">
-            <div class="q-pt-sm" style="width: 100px">{{ 0 + cartItem.price*cartItem.count }} 원</div>
-            <q-btn flat label="X" @click="onRemove(cartItem)"/>
+          <q-input class="q-pl-md cart__count" type="number" v-model="cartItem.count" min="0" />
+          <div class="col-xs-9 col-sm-4 col-md-3 col-lg-2 q-pl-lg">
+            <div class="row">
+              <div class="q-pt-sm cart__price">{{ 0 + cartItem.price*cartItem.count }} 원</div>
+              <q-btn flat label="X" @click="onRemove(cartItem)"/>
+            </div>
           </div>
         </div>
         <hr>
@@ -38,11 +35,11 @@
 
       <div class="q-py-lg">
         <div class="row"><q-space/>
-          <div class="text-h6 q-pt-lg">총 상품금액</div>
-          <div class="text-h2 q-pt-sm q-px-sm">{{ total }} 원</div>
+          <h6 class="q-pt-lg">총 상품금액</h6>
+          <h2 class="q-pt-sm q-px-sm">{{ total }} 원</h2>
         </div>
         <div class="row q-py-lg"><q-space/>
-          <q-btn push color="primary" label="구매하기" style="width: 200px; font-size: 20px" @click="buy = true"/>
+          <q-btn push color="primary" label="구매하기" class="cart__btn" @click="buy = true"/>
         </div>
       </div>
     </div>
@@ -61,6 +58,20 @@
     </q-dialog>
   </div>
 </template>
+
+<style lang="sass">
+.cart__img, .cart__text
+  width: 100%
+  height: auto
+
+.cart__count
+  width: 70px
+.cart__price
+  width: 100px
+.cart__btn
+  width: 200px
+  font-size: 20px
+</style>
 
 <script>
 export default {

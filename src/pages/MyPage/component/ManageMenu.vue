@@ -1,7 +1,7 @@
 
 <template>
   <div class="menu">
-    <div v-for="menu in menus" :key="menu.id"><q-btn @click="onRoute(menu.id)">{{ menu.name }}<q-icon class="icon" name="mdi-chevron-right"/></q-btn></div>
+    <q-btn v-for="menu in menus" :key="menu.id" class="menu__col" @click="onRoute(menu.id)" icon-right="mdi-chevron-right">{{ menu.name }}</q-btn>
   </div>
 </template>
 
@@ -9,8 +9,8 @@
 .menu
   padding-left: 30px
   padding-top: 40px
-  .col
-    width: 140px
+.menu__col
+  width: 140px
 
 </style>
 

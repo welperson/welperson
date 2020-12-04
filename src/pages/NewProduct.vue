@@ -1,24 +1,20 @@
 <template>
   <div class="content">
     <div class="q-pa-lg">
-      <div class="text-h1 text-primary q-py-md">신상품</div>
-      <div class="row items-start q-col-gutter-md">
-        <div class="proDetail column col-xs-12 col-sm-6 col-md-4 q-py-lg" v-for="item in newItem" :key="item.id">
-          <Product :item="item" />
-        </div>
-      </div>
+      <h1 class="text-primary q-py-md">신상품</h1>
+      <Products :items="newItems"/>
     </div>
   </div>
 </template>
 
 <script>
-import Product from 'components/Product'
+import Products from 'components/Products'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'NewProduct',
   components: {
-    Product
+    Products
   },
   data () {
     return {
@@ -27,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters('products', {
-      newItem: 'newItems'
+      newItems: 'newItems'
     })
   }
 }

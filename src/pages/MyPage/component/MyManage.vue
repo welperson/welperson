@@ -1,26 +1,14 @@
 <template>
   <div>
     <h4 class="q-pb-lg">개인 정보 관리</h4>
-    <div class="row q-py-sm manage">
-      <div class="col-xs-10 col-sm-5 col-md-4 text-h6">아이디</div>
-      <div class="col-md-6"><input type="text" value="a1234"></div>
+    <div v-for="text in texts" :key="text.id" class="row q-py-sm manage">
+      <h6 class="col-xs-10 col-sm-5 col-md-4 col-lg-4">{{ text.name }}</h6>
+      <input class="col-md-6 col-lg-5" type="text">
     </div>
     <div class="row q-py-sm manage">
-      <div class="col-xs-10 col-sm-5 col-md-4 text-h6">현재 비밀번호</div>
-      <div class="col-md-6"><input type="text"></div>
-    </div>
-    <div class="row q-py-sm manage">
-      <div class="col-xs-10 col-sm-5 col-md-4 text-h6">새 비밀번호</div>
-      <div class="col-md-6"><input type="text"></div>
-    </div>
-    <div class="row q-py-sm manage">
-      <div class="col-xs-10 col-sm-5 col-md-4 text-h6">새 비밀번호 확인</div>
-      <div class="col-md-6"><input type="text"></div>
-    </div>
-    <div class="row q-py-sm manage">
-      <div class="col-xs-10 col-sm-5 col-md-4 text-h6">관심 카테고리</div>
+      <h6 class="col-xs-10 col-sm-5 col-md-4">관심 카테고리</h6>
       <div class="col-xs-19 col-sm-7 col-md-7 col-lg-6">
-        <q-checkbox size="sm" label= "테크/가전" v-model="cate1"/>
+        <q-checkbox size="sm" label="테크/가전" v-model="cate1"/>
         <q-checkbox size="sm" label="패션/잡화" v-model="cate2"/>
         <q-checkbox size="sm" label="뷰티" v-model="cate3"/>
         <q-checkbox size="sm" label="푸드" v-model="cate4"/>
@@ -28,18 +16,9 @@
         <q-checkbox size="sm" label="홈리빙" v-model="cate6"/>
       </div>
     </div>
-    <div class="q-pt-md" style="text-align: center"><q-btn color="primary" label="회원정보수정"/></div>
+    <div class="q-pt-md text-center"><q-btn color="primary" label="회원정보수정"/></div>
   </div>
 </template>
-
-<style lang="sass">
-.manage
-  padding-left: 170px
-  @media (max-width: $breakpoint-sm)
-    padding-left: 100px
-  @media (max-width: $breakpoint-xs)
-    padding-left: 40px
-</style>
 
 <script>
 export default {
@@ -51,15 +30,13 @@ export default {
       cate3: false,
       cate4: false,
       cate5: false,
-      cate6: false
-      // checks: [
-      //   { label: '테크/가전', id: 1 },
-      //   { label: '패션/잡화', id: 2 },
-      //   { label: '뷰티', id: 3 },
-      //   { label: '푸드', id: 4 },
-      //   { label: '사무용품', id: 5 },
-      //   { label: '홈리빙', id: 6 }
-      // ]
+      cate6: false,
+      texts: [
+        { id: 1, name: '아이디' },
+        { id: 2, name: '현재 비밀번호' },
+        { id: 3, name: '새 비밀번호' },
+        { id: 4, name: '새 비밀번호 확인' }
+      ]
     }
   }
 }

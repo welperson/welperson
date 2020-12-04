@@ -2,25 +2,26 @@
   <div class="content">
     <div class="q-pa-lg">
       <div class="row">
-        <div class="col-0.5 q-py-md"><q-icon name="mdi-heart" style="color: #ed6665" size="xl"/></div>
-        <div class="text-h1 text-secondary q-py-md">내가 찜한 리스트</div>
+        <q-icon class="q-py-md favorite__icon" name="mdi-heart" size="xl"/>
+        <h1 class="text-secondary q-py-md">내가 찜한 리스트</h1>
       </div>
-      <div class="row items-start q-col-gutter-md">
-        <div class="pro-detail column col-xs-12 col-sm-6 col-md-4 q-py-lg" v-for="item in heartItems" :key="item.id">
-          <Product :item="item" />
-        </div>
-      </div>
+      <Products :items="heartItems"/>
     </div>
   </div>
 </template>
 
+<style lang="sass">
+.favorite__icon
+  color: #ed6665
+</style>
+
 <script>
-import Product from 'components/Product'
+import Products from 'components/Products'
 
 export default {
   name: 'Favorite',
   components: {
-    Product
+    Products
   },
   data () {
     return {
